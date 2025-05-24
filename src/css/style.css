@@ -13,6 +13,10 @@ body {
   background-color: var(--mantle);
 }
 
+.base-button {
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   justify-content: center;

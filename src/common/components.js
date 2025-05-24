@@ -1,11 +1,14 @@
 import { Button } from "../components/buttons.js";
+import config from '../../config.json' assert { type: 'json' };
 
-const linkButton = new Button({
-  text: "Link",
-  type: "link",
-  size: "medium",
-  container: document.getElementById("links"),
-  onClick: () => {
-    window.open("https://www.google.com", "_blank");
-  },
-})
+for (const [key, value] of Object.entries(config)) {
+  const linkButton = new Button({
+    text: key,
+    type: "primary",
+    size: "medium",
+    container: document.getElementById("links"),
+    onClick: () => {
+      window.open(value.link, "_blank");
+    },
+  })
+}
