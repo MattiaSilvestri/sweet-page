@@ -4,5 +4,11 @@
     "icon-colour": "#ff0000",
     "bg-colour": "#000000",
     "fg-colour": "#ffffff"
+  },
+  "Youtbe": {
+    "link": "https://www.youtube.com/",
+    "icon-colour": "#ff0000",
+    "bg-colour": "#000000",
+    "fg-colour": "#ffffff"
   }
 }
