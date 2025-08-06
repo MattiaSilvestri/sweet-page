@@ -53,12 +53,22 @@ body {
   cursor: pointer;
 }
 
+/* Search form */
 .search {
   display: flex;
   justify-content: center;
   width: var(--content-width);
   height: 40px;
   margin-bottom: 1%;
+}
+
+.search form {
+  width: 100%;
+}
+
+.search-input:focus {
+  outline: none;
+  border: 1px solid var(--surface1);
 }
 
 .search-input {
@@ -99,7 +109,6 @@ body {
 }
 
 .button-medium:hover {
-  background-color: var(--surface1);
   transform: translateY(2px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }

@@ -2,13 +2,13 @@
   "Google": {
     "link": "https://www.google.com",
     "icon-colour": "#ff0000",
-    "bg-colour": "#000000",
-    "fg-colour": "#ffffff"
+    "bg-colour": "#313244",
+    "fg-colour": "#cdd6f4"
   },
   "YouTube": {
     "link": "https://www.youtube.com/",
     "icon-colour": "#ff0000",
-    "bg-colour": "#000000",
-    "fg-colour": "#ffffff"
+    "bg-colour": "#313244",
+    "fg-colour": "#cdd6f4"
   }
 }
