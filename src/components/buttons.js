@@ -1,10 +1,12 @@
-export class Button {
+export class LinkButton {
   constructor(options) {
     // Default config
     this.config = {
       text: options.text || "Button",
       type: options.type || "primary",
       size: options.size || "medium",
+      fgColor: options.fgColor || "#cdd6f4",
+      bgColor: options.bgColor || "#313244",
       onClick: options.onClick || function() { },
       disabled: options.disabled || false,
       container: options.container || document.body,
@@ -30,6 +32,10 @@ export class Button {
     if (this.config.className) {
       button.classList.add(this.config.className);
     }
+
+    // Set colors
+    button.style.color = this.config.fgColor;
+    button.style.backgroundColor = this.config.bgColor;
 
     // Set disabled if needed
     if (this.config.disabled) {

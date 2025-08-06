@@ -2,9 +2,12 @@
 
 :root {
   --text: #cdd6f4;
+  --latte-blue: #1e66f5;
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
+  --surface2: #585b70;
+  --surface1: #45475a;
   --surface0: #313244;
   --content-width: 70%;
   --font-family: "Cantarell", monospace;
@@ -96,7 +99,7 @@ body {
 }
 
 .button-medium:hover {
-  background-color: #0056b3;
+  background-color: var(--surface1);
   transform: translateY(2px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
