@@ -18,6 +18,40 @@ body {
   background-color: var(--mantle);
 }
 
+/* --------- */
+/* Container */
+/* --------- */
+.tabbed-container {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tabbed-container button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tabbed-container button:hover {
+  background-color: #ddd;
+}
+
+.tabbed-container button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -38,6 +72,8 @@ body {
   border-radius: 15px;
   box-shadow: var(--box-shadow)
 }
+
+/* Settings */
 
 .settings-button {
   background-color: var(--crust);

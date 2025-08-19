@@ -14,15 +14,44 @@
       <button class="settings-button" id="settings">Settings</button>
     </div>
     <div class="container">
-      <div class="search">
-        <form action="https://www.google.com/search" method="GET">
-          <input type="text" name="q" class="search-input" placeholder="Search Google" />
-        </form>
+      <!-- Tab links -->
+      <div class="tabbed-container">
+        <button class="tablinks" onclick="openTab(event, 'London')">London</button>
+        <button class="tablinks" onclick="openTab(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
       </div>
-      <div class="content-box" id="content">
-        <div class="links" id="links">
+
+      <!-- Tab content -->
+      <div id="London" class="tabcontent">
+        <div class="search">
+          <form action="https://www.google.com/search" method="GET">
+            <input type="text" name="q" class="search-input" placeholder="Search Google" />
+          </form>
+        </div>
+        <div class="content-box" id="content">
+          <div class="links" id="links">
+          </div>
         </div>
       </div>
+
+      <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+      </div>
+
+      <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
+      <!--   <div class="search"> -->
+      <!--     <form action="https://www.google.com/search" method="GET"> -->
+      <!--       <input type="text" name="q" class="search-input" placeholder="Search Google" /> -->
+      <!--     </form> -->
+      <!--   </div> -->
+      <!--   <div class="content-box" id="content"> -->
+      <!--     <div class="links" id="links"> -->
+      <!--     </div> -->
+      <!--   </div> -->
     </div>
   </main>
   <script type="module" src="./src/common/components.js">
