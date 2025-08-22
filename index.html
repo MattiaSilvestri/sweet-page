@@ -16,9 +16,9 @@
     <div class="container">
       <!-- Tab links -->
       <div class="tabbed-container">
-        <button class="tablinks" onclick="openTab(event, 'London')">London</button>
-        <button class="tablinks" onclick="openTab(event, 'Paris')">Paris</button>
-        <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
+        <button class="tablinks" data-city="London">London</button>
+        <button class="tablinks" data-city="Paris">Paris</button>
+        <button class="tablinks" data-city="Tokyo">Tokyo</button>
       </div>
 
       <!-- Tab content -->
@@ -54,8 +54,8 @@
       <!--   </div> -->
     </div>
   </main>
-  <script type="module" src="./src/common/components.js">
-  </script>
+  <script type="module" src="./src/common/components.js"></script>
+  <script type="module" src="./src/common/utils.js"></script>
 </body>
 
 </html>
