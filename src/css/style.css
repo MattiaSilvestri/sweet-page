@@ -47,9 +47,15 @@ body {
 
 .tabcontent {
   display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: var(--base);
+  width: var(--content-width);
+  height: 70%;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow)
 }
 
 .container {
