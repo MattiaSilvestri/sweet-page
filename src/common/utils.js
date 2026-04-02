@@ -1,5 +1,5 @@
 export function openTab(evt, cityName) {
-  // Declare all variables
+  // Declare all variables 
   let tabcontent, tablinks;
 
   // Get all elements with class="tabcontent" and hide them
@@ -19,13 +19,3 @@ export function openTab(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 
-// Attach event listeners on load
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".tablinks");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", evt => {
-      const city = btn.dataset.city;
-      openTab(evt, city);
-    });
-  });
-});
