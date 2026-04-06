@@ -8,41 +8,52 @@
   <title>a-startpage</title>
 </head>
 
-<body>
+<body class="text-ctp-text">
   <script type="module" src="/src/main.js"></script>
 
-  <main>
-    <div class="settings">
-      <button class="settings-button" id="settings">Settings</button>
+  <main class="relative min-h-screen flex items-center justify-center">
+
+    <div class="absolute top-4 right-4">
+      <button id="settings"
+        class="settings-button text-xs font-medium px-3 py-1.5 rounded-lg border border-ctp-surface1 text-ctp-subtext bg-transparent hover:bg-ctp-surface0 hover:text-ctp-text hover:border-ctp-surface2 transition-colors cursor-pointer">
+        Settings
+      </button>
     </div>
-    <div class="container">
-      <div class="search">
+
+    <div class="w-[85%] mx-auto grid gap-y-5"
+      style="grid-template-columns: 160px 1fr; grid-template-rows: 44px 420px;">
+
+      <!-- Search bar -->
+      <div class="col-span-2">
         <form action="https://www.google.com/search" method="GET">
-          <input type="text" name="q" class="search-input" placeholder="Search Google" />
+          <input type="text" name="q"
+            class="search-input w-full h-11 px-5 rounded-xl bg-ctp-base border border-ctp-surface1 text-ctp-text text-sm placeholder:text-ctp-surface2 focus:outline-none focus:border-ctp-blue focus:ring-2 focus:ring-ctp-blue/10 transition-all shadow-[0_4px_16px_rgba(0,0,0,0.3)]"
+            placeholder="Search..." />
         </form>
       </div>
-      <!-- Tab links -->
-      <div class="tabbed-container">
-        <button class="tablinks" data-city="London">London</button>
-        <button class="tablinks" data-city="Paris">Paris</button>
-        <button class="tablinks" data-city="Tokyo">Tokyo</button>
+
+      <!-- Tab sidebar -->
+      <div class="tabbed-container flex flex-col bg-ctp-mantle border border-ctp-surface1 border-r-0 rounded-l-xl overflow-hidden">
+        <button class="tablinks text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors" data-city="London">London</button>
+        <button class="tablinks text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors" data-city="Paris">Paris</button>
+        <button class="tablinks text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors" data-city="Tokyo">Tokyo</button>
       </div>
 
-      <!-- Tab content -->
-      <div id="London" class="tabcontent">
-        <div class="links" id="links">
-        </div>
+      <!-- Tab content panels -->
+      <div id="London" class="tabcontent bg-ctp-base border border-ctp-surface1 rounded-r-xl p-6 overflow-y-auto shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
+        <div class="links flex flex-wrap gap-2 content-start" id="links"></div>
       </div>
 
-      <div id="Paris" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
+      <div id="Paris" class="tabcontent bg-ctp-base border border-ctp-surface1 rounded-r-xl p-6 shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
+        <h3 class="text-ctp-text font-semibold mb-1">Paris</h3>
+        <p class="text-ctp-subtext text-sm">Paris is the capital of France.</p>
       </div>
 
-      <div id="Tokyo" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
+      <div id="Tokyo" class="tabcontent bg-ctp-base border border-ctp-surface1 rounded-r-xl p-6 shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
+        <h3 class="text-ctp-text font-semibold mb-1">Tokyo</h3>
+        <p class="text-ctp-subtext text-sm">Tokyo is the capital of Japan.</p>
       </div>
+
     </div>
   </main>
 </body>
