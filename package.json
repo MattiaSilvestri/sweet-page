@@ -1,11 +1,18 @@
 {
-  "devDependencies": {
-    "@web/dev-server": "^0.4.6"
-  },
+  "name": "a-startpage",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "wds --node-resolve --watch --open --port 8081"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.0.4"
   },
   "dependencies": {
-    "vite": "^6.3.5"
+    "@tailwindcss/vite": "^4.2.2",
+    "tailwindcss": "^4.2.2"
   }
 }
