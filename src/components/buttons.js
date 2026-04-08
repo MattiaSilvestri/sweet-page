@@ -85,3 +85,28 @@ export class LinkButton {
   }
 
 }
+
+export class Tab {
+  constructor(options) {
+    this.config = {
+      name: options.text || "Button",
+      type: options.type || "primary",
+      fgColor: options.fgColor || "#cdd6f4",
+      bgColor: options.bgColor || "#313244",
+      disabled: options.disabled || false,
+      className: options.className || "",
+      icon: options.icon || "",
+    };
+
+    this.element = this.createTabElement();
+    this.render();
+  }
+
+  createTabElement() {
+    const button = document.createElement("button");
+    button.textContent = this.config.name;
+    button.dataset.city = this.config.name;
+
+    button.classList.add("tablinks cursor-pointer text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors", `tab-${this.config.type}`);
+    button.classList.add(this.config.className);
+  }
