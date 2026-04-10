@@ -14,10 +14,7 @@ export class LinkButton {
       icon: options.icon || "",
     };
 
-    // Create the actual button
-    this.element = this.createButtonElement();
-
-    // Add button to the specified container
+    // Render button to the specified container
     this.render();
   }
 
@@ -62,7 +59,7 @@ export class LinkButton {
   }
 
   render() {
-    this.config.container.appendChild(this.element);
+    this.config.container.appendChild(this.createButtonElement());
   }
 
   setText(text) {
@@ -96,25 +93,36 @@ export class Tab {
       icon: options.icon || "",
     };
 
-    this.element = this.createTabElement();
     this.render();
   }
 
   createTabElement() {
+    // Add tab button
     const button = document.createElement("button");
     button.textContent = this.config.name;
     button.dataset.city = this.config.name;
-
     button.classList.add("tablinks cursor-pointer text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors", `tab-${this.config.type}`);
     // button.classList.add(this.config.icon);
 
-    return button;
+    // Add tab panel holding the link buttons
+    const tabContent = document.createElement("div");
+    tabContent.id = this.config.name;
+    tabContent.classList.add("bg-ctp-base border border-ctp-surface1 rounded-r-xl p-6 overflow-y-auto shadow-[0_8px_24px_rgba(0,0,0,0.4)]");
+
+    const tabContentButton = document.createElement("div");
+    tabContentButton.id = "links";
+    tabContentButton.classList.add("links flex flex-wrap gap-2 content-start");
+    tabContent.appendChild(tabContentButton);
+
+    return { button: button, tabContent: tabContent };
   }
 
 
 
   render() {
-    document.querySelector(".tabbed-container").appendChild(this.element);
-    document.querySelector(".tabcontent").appendChild(this.element);
+    // Render elements in the correct place
+    const { button, tabContent } = this.createTabElement();
+    document.querySelector(".tabbed-container").appendChild(button);
+    document.querySelector(".tabcontent").appendChild(tabContent);
   }
 }
