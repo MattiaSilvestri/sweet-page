@@ -93,8 +93,6 @@ export class Tab {
       type: options.type || "primary",
       fgColor: options.fgColor || "#cdd6f4",
       bgColor: options.bgColor || "#313244",
-      disabled: options.disabled || false,
-      className: options.className || "",
       icon: options.icon || "",
     };
 
@@ -108,5 +106,15 @@ export class Tab {
     button.dataset.city = this.config.name;
 
     button.classList.add("tablinks cursor-pointer text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors", `tab-${this.config.type}`);
-    button.classList.add(this.config.className);
+    // button.classList.add(this.config.icon);
+
+    return button;
   }
+
+
+
+  render() {
+    document.querySelector(".tabbed-container").appendChild(this.element);
+    document.querySelector(".tabcontent").appendChild(this.element);
+  }
+}
