@@ -1,4 +1,4 @@
-export function openTab(cityName, { evt = null, btn = null } = {}) {
+export function openTab(tabName, { evt = null, btn = null } = {}) {
   if (!evt && !btn) {
     throw new Error("openTab requires either evt or btn to be provided");
   }
@@ -6,7 +6,7 @@ export function openTab(cityName, { evt = null, btn = null } = {}) {
   let tabcontent, tablinks;
 
   // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
+  tabcontent = document.getElementsByClassName("board");
   for (let content of tabcontent) {
     content.style.display = "none";
   }
@@ -18,18 +18,19 @@ export function openTab(cityName, { evt = null, btn = null } = {}) {
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(tabName).style.display = "block";
   const target = btn || evt.currentTarget;
   target.className += " active";
 
   // Save in local storage
-  localStorage.setItem("tab", cityName);
+  localStorage.setItem("tab", tabName);
 }
 
 export function loadTab() {
-  const tab = localStorage.getItem("tab") || document.querySelector("button.tablinks").dataset.city;
+  const buttons = document.querySelector("button.tablinks");
+  const tab = localStorage.getItem("tab") || buttons ? buttons.dataset.name : null;
   if (tab) {
-    const btn = document.querySelector(`button[data-city='${tab}']`);
+    const btn = document.querySelector(`button[data-name='${tab}']`);
     openTab(tab, { btn: btn });
   }
 }

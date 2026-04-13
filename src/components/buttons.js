@@ -92,6 +92,7 @@ export class Tab {
       bgColor: options.bgColor || "#313244",
       icon: options.icon || "",
     };
+    this.links = options.links || {};
 
     this.render();
   }
@@ -100,18 +101,18 @@ export class Tab {
     // Add tab button
     const button = document.createElement("button");
     button.textContent = this.config.name;
-    button.dataset.city = this.config.name;
-    button.classList.add("tablinks cursor-pointer text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors", `tab-${this.config.type}`);
+    button.dataset.name = this.config.name;
+    button.classList.add(...("tablinks cursor-pointer text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors".split(" ")), `tab-${this.config.type}`);
     // button.classList.add(this.config.icon);
 
     // Add tab panel holding the link buttons
     const tabContent = document.createElement("div");
     tabContent.id = this.config.name;
-    tabContent.classList.add("bg-ctp-base border border-ctp-surface1 rounded-r-xl p-6 overflow-y-auto shadow-[0_8px_24px_rgba(0,0,0,0.4)]");
+    tabContent.classList.add("board", ...("bg-ctp-base h-full border border-ctp-surface1 rounded-r-xl p-6 overflow-y-auto shadow-[0_8px_24px_rgba(0,0,0,0.4)]".split(" ")));
 
     const tabContentButton = document.createElement("div");
     tabContentButton.id = "links";
-    tabContentButton.classList.add("links flex flex-wrap gap-2 content-start");
+    tabContentButton.classList.add(...("links flex flex-wrap gap-2 content-start".split(" ")));
     tabContent.appendChild(tabContentButton);
 
     return { button: button, tabContent: tabContent };

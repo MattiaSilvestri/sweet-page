@@ -17,5 +17,24 @@
         "fg-colour": "#cdd6f4"
       }
     }
+  },
+  "Lol": {
+    "type": "secondary",
+    "bg-colour": "#313244",
+    "fg-colour": "#cdd6f4",
+    "links": {
+      "Google": {
+        "link": "https://www.google.com",
+        "icon-colour": "#ff0000",
+        "bg-colour": "#ff0000",
+        "fg-colour": "#cdd6f4"
+      },
+      "YouTube": {
+        "link": "https://www.youtube.com/",
+        "icon-colour": "#ff0000",
+        "bg-colour": "#313244",
+        "fg-colour": "#cdd6f4"
+      }
+    }
   }
 }

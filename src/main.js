@@ -1,16 +1,16 @@
 import './style.css'
 import { loadTab, openTab } from "./common/utils";
-import { addLinkButton } from "./common/components";
+import { addTab } from "./common/components";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add link buttons
-  addLinkButton();
+  addTab();
   // Attach event listeners for tab buttons
   const buttons = document.querySelectorAll(".tablinks");
   buttons.forEach(btn => {
     btn.addEventListener("click", evt => {
-      const city = btn.dataset.city;
-      openTab(city, { evt: evt });
+      const name = btn.dataset.name;
+      openTab(name, { evt: evt });
     });
   });
   // Load last tab
