@@ -102,13 +102,13 @@ export class Tab {
     const button = document.createElement("button");
     button.textContent = this.config.name;
     button.dataset.name = this.config.name;
-    button.classList.add(...("tablinks cursor-pointer text-left w-full px-4 py-3 text-sm font-medium text-ctp-subtext hover:bg-ctp-surface0 hover:text-ctp-text transition-colors".split(" ")), `tab-${this.config.type}`);
+    button.classList.add("tablinks", "cursor-pointer", "w-full", `tab-${this.config.type}`);
     // button.classList.add(this.config.icon);
 
     // Add tab panel holding the link buttons
     const tabContent = document.createElement("div");
     tabContent.id = this.config.name;
-    tabContent.classList.add("tab-content", ...("bg-ctp-base h-full border border-ctp-surface1 rounded-r-lg p-6 overflow-y-auto".split(" ")));
+    tabContent.classList.add("tab-content", "h-full");
 
     const tabContentButton = document.createElement("div");
     tabContentButton.id = "links";
