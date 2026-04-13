@@ -51,7 +51,7 @@ main>div {
 }
 
 .search-prompt .prompt-path {
-  font-size: 11px;
+  font-size: 12px;
   color: #45475a;
   letter-spacing: 0.06em;
   white-space: nowrap;
@@ -83,7 +83,7 @@ main>div {
   border-bottom: 1px solid #313244;
   color: #cdd6f4;
   font-family: "JetBrains Mono", monospace;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   padding: 0 2px;
   outline: none;
@@ -104,7 +104,7 @@ main>div {
 .tabbed-container {
   background: transparent !important;
   border: none !important;
-  border-right: 2px solid var(--color-ctp-blue) !important;
+  border-right: 3px solid var(--color-ctp-blue) !important;
   border-radius: 0 !important;
 }
 
@@ -117,7 +117,7 @@ main>div {
   padding: 9px 14px 9px 12px;
   cursor: pointer;
   font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -166,8 +166,9 @@ main>div {
   height: 100%;
   overflow-y: auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 2px;
   align-content: flex-start;
 }
 
@@ -186,32 +187,48 @@ main>div {
 
 /* ── Link buttons ─────────────────────────────────── */
 .button-medium {
-  padding: 5px 13px;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 5px 0;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  text-transform: none;
   font-family: "JetBrains Mono", monospace;
-  border-radius: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: filter 0.12s ease, transform 0.12s ease;
   cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
+}
+
+.button-medium::before {
+  content: ">";
+  font-size: 12px;
+  color: var(--color-ctp-text);
+  opacity: 1;
+  flex-shrink: 0;
+  width: 10px;
+  transition: opacity 0.15s ease;
 }
 
 .button-medium:hover {
-  filter: brightness(1.25);
-  transform: translateY(-1px);
+  opacity: 1;
 }
 
 .button-medium:active {
-  filter: brightness(0.85);
-  transform: translateY(0) scale(0.97);
+  opacity: 0.7;
 }
 
 /* ── Settings button ──────────────────────────────── */
 .settings-button {
   font-family: "JetBrains Mono", monospace !important;
-  font-size: 10px !important;
+  font-size: 11px !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase;
   color: #313244 !important;
