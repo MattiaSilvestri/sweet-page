@@ -5,8 +5,8 @@ export function openTab(tabName, { evt = null, btn = null } = {}) {
   // Declare all variables 
   let tabcontent, tablinks;
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("board");
+  // Get all elements with class="tab-board" and hide them
+  tabcontent = document.getElementsByClassName("tab-content");
   for (let content of tabcontent) {
     content.style.display = "none";
   }

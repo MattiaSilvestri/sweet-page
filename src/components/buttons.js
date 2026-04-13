@@ -108,7 +108,7 @@ export class Tab {
     // Add tab panel holding the link buttons
     const tabContent = document.createElement("div");
     tabContent.id = this.config.name;
-    tabContent.classList.add("board", ...("bg-ctp-base h-full border border-ctp-surface1 rounded-r-xl p-6 overflow-y-auto shadow-[0_8px_24px_rgba(0,0,0,0.4)]".split(" ")));
+    tabContent.classList.add("tab-content", ...("bg-ctp-base h-full border border-ctp-surface1 rounded-r-xl p-6 overflow-y-auto shadow-[0_8px_24px_rgba(0,0,0,0.4)]".split(" ")));
 
     const tabContentButton = document.createElement("div");
     tabContentButton.id = "links";
@@ -124,6 +124,6 @@ export class Tab {
     // Render elements in the correct place
     const { button, tabContent } = this.createTabElement();
     document.querySelector(".tabbed-container").appendChild(button);
-    document.querySelector(".tabcontent").appendChild(tabContent);
+    document.querySelector(".tab-board").appendChild(tabContent);
   }
 }

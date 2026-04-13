@@ -26,7 +26,7 @@ body {
 }
 
 /* Visibility controlled by JS */
-.tabcontent {
+.tab-board {
   /* display: none; */
   /* override left border color so the sidebar join looks seamless */
   border-left-color: #313244;
