@@ -12,7 +12,9 @@
     "vite": "^8.0.8"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "@tailwindcss/vite": "^4.2.2",
+    "iconify-icon": "^3.0.2",
     "tailwindcss": "^4.2.2"
   }
 }

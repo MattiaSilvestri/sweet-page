@@ -23,13 +23,13 @@
     "bg-colour": "#313244",
     "fg-colour": "#cdd6f4",
     "links": {
-      "Google": {
+      "Goku": {
         "link": "https://www.google.com",
         "icon-colour": "#ff0000",
         "bg-colour": "#ff0000",
         "fg-colour": "#cdd6f4"
       },
-      "YouTube": {
+      "MajinBu": {
         "link": "https://www.youtube.com/",
         "icon-colour": "#ff0000",
         "bg-colour": "#313244",

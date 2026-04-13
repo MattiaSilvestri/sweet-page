@@ -1,6 +1,7 @@
 import './style.css'
 import { loadTab, openTab } from "./common/utils";
 import { addTab } from "./common/components";
+import "iconify-icon";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add link buttons
