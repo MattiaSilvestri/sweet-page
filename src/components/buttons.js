@@ -6,7 +6,7 @@ export class LinkButton {
       type: options.type || "primary",
       size: options.size || "medium",
       fgColor: options.fgColor || "#cdd6f4",
-      bgColor: options.bgColor || "#313244",
+      bgColor: options.bgColor || "#181825",
       onClick: options.onClick || function() { },
       disabled: options.disabled || false,
       container: options.container || document.body,
@@ -25,7 +25,7 @@ export class LinkButton {
     button.textContent = this.config.text;
 
     // Add classes
-    button.classList.add("base-button", `button-${this.config.type}`, `button-${this.config.size}`);
+    button.classList.add(...("base-button cursor-pointer m-1".split(" ")), `button-${this.config.type}`, `button-${this.config.size}`,);
     if (this.config.className) {
       button.classList.add(this.config.className);
     }
@@ -108,11 +108,11 @@ export class Tab {
     // Add tab panel holding the link buttons
     const tabContent = document.createElement("div");
     tabContent.id = this.config.name;
-    tabContent.classList.add("tab-content", ...("bg-ctp-base h-full border border-ctp-surface1 rounded-r-xl p-6 overflow-y-auto shadow-[0_8px_24px_rgba(0,0,0,0.4)]".split(" ")));
+    tabContent.classList.add("tab-content", ...("bg-ctp-base h-full border border-ctp-surface1 rounded-r-lg p-6 overflow-y-auto".split(" ")));
 
     const tabContentButton = document.createElement("div");
     tabContentButton.id = "links";
-    tabContentButton.classList.add(...("links flex flex-wrap gap-2 content-start".split(" ")));
+    tabContentButton.classList.add(...("links flex flex-wrap gap-3 content-start".split(" ")));
     tabContent.appendChild(tabContentButton);
 
     return { button: button, tabContent: tabContent };

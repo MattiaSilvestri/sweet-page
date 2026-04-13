@@ -7,14 +7,14 @@
       "Google": {
         "link": "https://www.google.com",
         "icon-colour": "#ff0000",
-        "bg-colour": "#313244",
-        "fg-colour": "#cdd6f4"
+        "bg-colour": "",
+        "fg-colour": ""
       },
       "YouTube": {
         "link": "https://www.youtube.com/",
         "icon-colour": "#ff0000",
-        "bg-colour": "#313244",
-        "fg-colour": "#cdd6f4"
+        "bg-colour": "",
+        "fg-colour": ""
       }
     }
   },
