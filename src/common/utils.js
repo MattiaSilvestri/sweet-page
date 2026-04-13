@@ -1,37 +1,50 @@
-export function openTab(tabName, { evt = null, btn = null } = {}) {
-  if (!evt && !btn) {
-    throw new Error("openTab requires either evt or btn to be provided");
-  }
-  // Declare all variables 
-  let tabcontent, tablinks;
+import { animate } from "motion";
 
-  // Get all elements with class="tab-board" and hide them
-  tabcontent = document.getElementsByClassName("tab-content");
-  for (let content of tabcontent) {
-    content.style.display = "none";
-  }
+export function openTab(tabName, { evt = null, btn = null, skipAnimation = false } = {}) {
+  // Find currently visible tab before changing anything
+  const activeLink = document.querySelector(".tablinks.active");
+  const prevContent = activeLink ? document.getElementById(activeLink.dataset.name) : null;
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
+  // Remove active from all tab buttons
+  const tablinks = document.getElementsByClassName("tablinks");
   for (let link of tablinks) {
-    link.className = link.className.replace("active", "");
+    link.classList.remove("active");
   }
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(tabName).style.display = "block";
-  const target = btn || evt.currentTarget;
-  target.className += " active";
+  const newContent = document.getElementById(tabName);
 
-  // Save in local storage
+  if (skipAnimation || !prevContent || prevContent === newContent) {
+    // Snap all off-screen, place active instantly
+    const tabcontent = document.getElementsByClassName("tab-content");
+    for (let content of tabcontent) {
+      content.style.transform = "translateY(-105%)";
+      content.style.zIndex = "0";
+    }
+    newContent.style.transform = "translateY(0%)";
+    newContent.style.zIndex = "1";
+  } else {
+    // New tab slides down from above (on top)
+    // Old tab slides up behind it simultaneously
+    newContent.style.zIndex = "2";
+    prevContent.style.zIndex = "1";
+
+    let opts = { duration: 0.4, ease: [0.323, 0.02, 0, 0.996] };
+
+    animate(newContent, { transform: ["translateY(-105%)", "translateY(0%)"] }, opts);
+    animate(prevContent, { transform: ["translateY(0%)", "translateY(-105%)"] }, opts)
+  }
+
+  const target = btn || (evt && evt.currentTarget);
+  if (target) target.classList.add("active");
+
   localStorage.setItem("tab", tabName);
 }
 
 export function loadTab() {
-  const buttons = document.querySelector("button.tablinks");
-  const tab = localStorage.getItem("tab") || buttons ? buttons.dataset.name : null;
-  if (tab) {
-    const btn = document.querySelector(`button[data-name='${tab}']`);
-    openTab(tab, { btn: btn });
+  const firstBtn = document.querySelector("button.tablinks");
+  const tabName = localStorage.getItem("tab") || (firstBtn ? firstBtn.dataset.name : null);
+  if (tabName) {
+    const btn = document.querySelector(`button[data-name='${tabName}']`);
+    openTab(tabName, { btn, skipAnimation: true });
   }
 }
-
