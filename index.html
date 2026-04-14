@@ -41,34 +41,33 @@
   </main>
 
   <!-- Settings modal -->
-  <div id="settings-modal" class="modal-backdrop">
-    <div class="modal">
+  <div id="settings-modal" class="modal-backdrop fixed inset-0 bg-black/50 z-[100] items-center justify-center">
+    <div class="bg-ctp-base border border-ctp-surface0 rounded-md w-[420px] shadow-[0_8px_48px_rgba(0,0,0,0.6)]">
 
-      <div class="modal-header">
-        <span class="modal-title">settings</span>
-        <button id="settings-close" class="modal-close">✕</button>
+      <div class="flex items-center justify-between px-[18px] py-[14px] border-b border-ctp-surface0">
+        <span class="text-[11px] font-medium tracking-[0.14em] uppercase text-ctp-subtext">settings</span>
+        <button id="settings-close" class="bg-transparent border-none text-ctp-surface1 text-xs leading-none px-1 cursor-pointer transition-colors hover:text-ctp-text">✕</button>
       </div>
 
-      <div class="modal-body">
+      <div class="p-[18px] flex flex-col gap-6">
 
-        <section class="modal-section">
-          <h2 class="modal-section-title">general</h2>
-          <div class="modal-row">
+        <section class="flex flex-col gap-[10px]">
+          <h2 class="text-[9px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">general</h2>
+          <div class="flex items-center justify-between text-xs text-ctp-subtext">
             <label>Search engine</label>
-            <select id="search-engine">
-            </select>
+            <select id="search-engine" class="bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-[11px] rounded px-2 py-1 outline-none cursor-pointer"></select>
           </div>
-          <div class="modal-row">
+          <div class="flex items-center justify-between text-xs text-ctp-subtext">
             <label>Open links in new tab</label>
-            <input id="open-in-new-tab" type="checkbox" />
+            <input id="open-in-new-tab" type="checkbox" class="size-3.5 accent-ctp-mauve cursor-pointer" />
           </div>
         </section>
 
-        <section class="modal-section">
-          <h2 class="modal-section-title">appearance</h2>
-          <div class="modal-row">
+        <section class="flex flex-col gap-[10px]">
+          <h2 class="text-[9px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">appearance</h2>
+          <div class="flex items-center justify-between text-xs text-ctp-subtext">
             <label>Accent color</label>
-            <select>
+            <select class="bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-[11px] rounded px-2 py-1 outline-none cursor-pointer">
               <option>mauve</option>
               <option>blue</option>
               <option>teal</option>
@@ -78,6 +77,10 @@
           </div>
         </section>
 
+      </div>
+
+      <div class="px-[18px] py-3 border-t border-ctp-surface0 flex justify-end">
+        <button id="settings-save" class="text-[11px] font-medium tracking-[0.1em] uppercase text-ctp-crust bg-ctp-mauve border-none rounded px-4 py-1.5 cursor-pointer transition-all hover:brightness-110 active:brightness-90">Save</button>
       </div>
 
     </div>
