@@ -1,34 +1,27 @@
 {
   "Bookmarks": {
-    "bg-colour": "#313244",
-    "fg-colour": "#cdd6f4",
     "links": {
       "Google": {
         "link": "https://www.google.com",
         "icon": "tabler:brand-google-filled",
-        "bg-colour": "",
-        "fg-colour": ""
+        "icon-color": ""
       },
       "YouTube": {
         "link": "https://www.youtube.com/",
-        "bg-colour": "",
-        "fg-colour": ""
+        "icon": "tabler:brand-youtube-filled",
+        "icon-color": "text-ctp-red"
       }
     }
   },
   "Lol": {
-    "bg-colour": "#313244",
-    "fg-colour": "#cdd6f4",
     "links": {
       "Goku": {
         "link": "https://www.google.com",
-        "bg-colour": "#ff0000",
-        "fg-colour": "#cdd6f4"
+        "icon-color": ""
       },
       "MajinBu": {
         "link": "https://www.youtube.com/",
-        "bg-colour": "#313244",
-        "fg-colour": "#cdd6f4"
+        "icon-color": ""
       }
     }
   }

@@ -5,8 +5,7 @@ export class LinkButton {
     // Default config
     this.config = {
       text: options.text || "Button",
-      fgColor: options.fgColor || "#cdd6f4",
-      bgColor: options.bgColor || "#181825",
+      iconColor: options.iconColor || "text-ctp-text",
       onClick: options.onClick || function() { },
       disabled: options.disabled || false,
       container: options.container || document.body,
@@ -31,8 +30,8 @@ export class LinkButton {
     }
 
     // Set colors
-    button.style.color = this.config.fgColor;
-    button.style.backgroundColor = this.config.bgColor;
+    button.classList.add("text-ctp-text");
+    button.style.backgroundColor = "transparent";
 
     // Set disabled if needed
     if (this.config.disabled) {
@@ -44,6 +43,7 @@ export class LinkButton {
     if (this.config.icon) {
       const iconElement = document.createElement("iconify-icon");
       iconElement.icon = this.config.icon;
+      iconElement.classList.add(this.config.iconColor);
       button.prepend(iconElement);
     }
 
@@ -65,10 +65,7 @@ export class LinkButton {
 export class Tab {
   constructor(options) {
     this.config = {
-      name: options.text || "Button",
-      type: options.type || "primary",
-      fgColor: options.fgColor || "#cdd6f4",
-      bgColor: options.bgColor || "#313244",
+      name: options.text || "Tab",
       icon: options.icon || "",
     };
     this.links = options.links || {};
@@ -81,7 +78,7 @@ export class Tab {
     const button = document.createElement("button");
     button.textContent = this.config.name;
     button.dataset.name = this.config.name;
-    button.classList.add("tablinks", "cursor-pointer", "w-full", `tab-${this.config.type}`);
+    button.classList.add("tablinks", "cursor-pointer", "w-full");
     // button.classList.add(this.config.icon);
 
     // Add tab panel holding the link buttons

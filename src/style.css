@@ -1,24 +1,51 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
 @import "tailwindcss";
+@import "@catppuccin/tailwindcss/mocha.css";
 
 @theme {
-  --color-ctp-base: #1e1e2e;
-  --color-ctp-mantle: #181825;
-  --color-ctp-crust: #11111b;
+  /* Bases */
+  --color-ctp-crust:    #11111b;
+  --color-ctp-mantle:   #181825;
+  --color-ctp-base:     #1e1e2e;
+
+  /* Surfaces */
   --color-ctp-surface0: #313244;
   --color-ctp-surface1: #45475a;
   --color-ctp-surface2: #585b70;
-  --color-ctp-text: #cdd6f4;
-  --color-ctp-subtext: #a6adc8;
-  --color-ctp-blue: #89b4fa;
-  --color-ctp-lavender: #b4befe;
-  --color-ctp-mauve: #cba6f7;
-  --color-ctp-teal: #94e2d5;
+
+  /* Overlays */
+  --color-ctp-overlay0: #6c7086;
+  --color-ctp-overlay1: #7f849c;
+  --color-ctp-overlay2: #9399b2;
+
+  /* Text */
+  --color-ctp-subtext0: #a6adc8;
+  --color-ctp-subtext:  #a6adc8; /* alias for subtext0 */
+  --color-ctp-subtext1: #bac2de;
+  --color-ctp-text:     #cdd6f4;
+
+  /* Accents */
+  --color-ctp-lavender:  #b4befe;
+  --color-ctp-blue:      #89b4fa;
+  --color-ctp-sapphire:  #74c7ec;
+  --color-ctp-sky:       #89dceb;
+  --color-ctp-teal:      #94e2d5;
+  --color-ctp-green:     #a6e3a1;
+  --color-ctp-yellow:    #f9e2af;
+  --color-ctp-peach:     #fab387;
+  --color-ctp-maroon:    #eba0ac;
+  --color-ctp-red:       #f38ba8;
+  --color-ctp-mauve:     #cba6f7;
+  --color-ctp-pink:      #f5c2e7;
+  --color-ctp-flamingo:  #f2cdcd;
+  --color-ctp-rosewater: #f5e0dc;
+
+  /* Custom */
+  --color-content-bg: #151521;
 }
 
 body {
-  background-color: #181825;
   font-family: "JetBrains Mono", monospace;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
@@ -51,8 +78,7 @@ main>div {
 }
 
 .search-prompt .prompt-path {
-  font-size: 12px;
-  color: #45475a;
+  font-size: 14px;
   letter-spacing: 0.06em;
   white-space: nowrap;
   user-select: none;
@@ -60,7 +86,6 @@ main>div {
 }
 
 .search-prompt .prompt-chevron {
-  color: #cba6f7;
   font-size: 18px;
   line-height: 1;
   flex-shrink: 0;
@@ -80,8 +105,7 @@ main>div {
   height: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #313244;
-  color: #cdd6f4;
+  border-bottom: 1px solid var(--color-ctp-surface0);
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;
   font-weight: 400;
@@ -92,12 +116,12 @@ main>div {
 }
 
 .search-input::placeholder {
-  color: #313244;
+  color: var(--color-ctp-surface0);
   font-style: italic;
 }
 
 .search-input:focus {
-  border-bottom-color: #cba6f7;
+  border-bottom-color: var(--color-ctp-mauve)
 }
 
 /* ── Tab sidebar ──────────────────────────────────── */
@@ -121,7 +145,7 @@ main>div {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #45475a;
+  color: var(--color-ctp-surface1);
   transition: color 0.15s ease;
   display: flex;
   align-items: center;
@@ -140,15 +164,15 @@ main>div {
 }
 
 .tablinks:hover {
-  color: #a6adc8;
+  color: var(--color-ctp-subtext);
 }
 
 .tablinks.active {
-  color: #cba6f7;
+  color: var(--color-ctp-mauve);
 }
 
 .tablinks.active::before {
-  background: #cba6f7;
+  background: var(--color-ctp-mauve);
 }
 
 /* ── Tab content ──────────────────────────────────── */
@@ -165,7 +189,7 @@ main>div {
   width: 100%;
   height: 100%;
   transform: translateY(-105%);
-  background: #151521 !important;
+  background: var(--color-content-bg) !important;
   border: 1px solid var(--color-ctp-surface0) !important;
   border-left: none !important;
   border-radius: 0 6px 6px 0 !important;
@@ -187,7 +211,7 @@ main>div {
 }
 
 .tab-content::-webkit-scrollbar-thumb {
-  background: #313244;
+  background: var(--color-ctp-surface0);
   border-radius: 2px;
 }
 
@@ -237,8 +261,8 @@ main>div {
   font-size: 11px !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase;
-  color: #313244 !important;
-  border: 1px solid #313244 !important;
+  color: var(--color-ctp-surface0) !important;
+  border: 1px solid var(--color-ctp-surface0) !important;
   border-radius: 3px !important;
   padding: 5px 10px !important;
   cursor: pointer;
@@ -247,6 +271,6 @@ main>div {
 }
 
 .settings-button:hover {
-  color: #585b70 !important;
-  border-color: #45475a !important;
+  color: var(--color-ctp-surface2) !important;
+  border-color: var(--color-ctp-surface1) !important;
 }
