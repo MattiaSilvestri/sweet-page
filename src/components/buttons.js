@@ -1,10 +1,10 @@
+import { addIcon, loadIcon } from "iconify-icon";
+
 export class LinkButton {
   constructor(options) {
     // Default config
     this.config = {
       text: options.text || "Button",
-      type: options.type || "primary",
-      size: options.size || "medium",
       fgColor: options.fgColor || "#cdd6f4",
       bgColor: options.bgColor || "#181825",
       onClick: options.onClick || function() { },
@@ -25,7 +25,7 @@ export class LinkButton {
     button.textContent = this.config.text;
 
     // Add classes
-    button.classList.add(...("base-button cursor-pointer m-1".split(" ")), `button-${this.config.type}`, `button-${this.config.size}`,);
+    button.classList.add(...("base-button cursor-pointer m-1".split(" ")),);
     if (this.config.className) {
       button.classList.add(this.config.className);
     }
@@ -42,9 +42,8 @@ export class LinkButton {
 
     // Add icon 
     if (this.config.icon) {
-      const iconElement = document.createElement("span");
-      iconElement.classList.add("button-icon");
-      iconElement.innerHTML = this.config.icon;
+      const iconElement = document.createElement("iconify-icon");
+      iconElement.icon = this.config.icon;
       button.prepend(iconElement);
     }
 
@@ -61,26 +60,6 @@ export class LinkButton {
   render() {
     this.config.container.appendChild(this.createButtonElement());
   }
-
-  setText(text) {
-    this.config.text = text;
-    this.element.textContent = text;
-    return this;
-  }
-
-  setDisabled(isDisabled) {
-    this.config.disabled = isDisabled;
-    this.element.disabled = isDisabled;
-    this.element.classList.toggle("disabled", isDisabled);
-    return this;
-  }
-
-  remove() {
-    if (this.element && this.element.parentNode) {
-      this.element.parentNode.removeChild(this.element);
-    }
-  }
-
 }
 
 export class Tab {

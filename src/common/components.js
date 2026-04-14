@@ -10,6 +10,7 @@ function addLinkButton(tab) {
       container: document.getElementById("links"),
       fgColor: value["fg-colour"],
       bgColor: value["bg-colour"],
+      icon: value.icon,
       container: document.getElementById(tab.config.name), // Create inside tab
       onClick: () => {
         window.open(value.link, "_blank");
