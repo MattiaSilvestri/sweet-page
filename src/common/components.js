@@ -34,10 +34,10 @@ export function addTab() {
 export function addModal() {
   // Read settings from config and create modal
   // const settings = Object.fromEntries(Object.entries(config.settings))
-  const settings = JSON.parse(localStorage.getItem("config"))
+  const settings = JSON.parse(localStorage.getItem("config"));
   const settingsModal = new SettingsModal({
-    searchEngine: settings["search-engine"],
-    newTab: settings["open-in-new-tab"]
+    searchEngine: settings ? settings["search-engine"] : null,
+    newTab: settings ? settings["open-in-new-tab"] : null,
   })
   // Append settings modal event handlers //
   // Open modal
