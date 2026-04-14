@@ -3,7 +3,7 @@
     "links": {
       "Google": {
         "link": "https://www.google.com",
-        "icon": "tabler:brand-google-filled",
+        "icon": "streamline-ultimate-color:google-logo",
         "icon-color": ""
       },
       "YouTube": {
