@@ -1,5 +1,3 @@
-import { addIcon, loadIcon } from "iconify-icon";
-
 export class LinkButton {
   constructor(options) {
     // Default config

@@ -1,6 +1,6 @@
 import './style.css'
 import { loadTab, openTab } from "./common/utils";
-import { addTab } from "./common/components";
+import { addModal, addTab } from "./common/components";
 import "iconify-icon";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,4 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Load last tab
   loadTab();
+  // Add settings modal
+  addModal();
 })

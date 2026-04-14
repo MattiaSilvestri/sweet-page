@@ -24,7 +24,7 @@
       <div class="col-span-2 search-prompt">
         <span class="prompt-path text-ctp-surface1">~/google</span>
         <span class="prompt-chevron text-ctp-mauve">›</span>
-        <form action="https://www.google.com/search" method="GET">
+        <form id="search-form" action="https://www.google.com/search" method="GET">
           <input type="text" name="q" class="search-input text-ctp-text" placeholder="search the web..." />
         </form>
       </div>
@@ -39,6 +39,49 @@
 
     </div>
   </main>
+
+  <!-- Settings modal -->
+  <div id="settings-modal" class="modal-backdrop">
+    <div class="modal">
+
+      <div class="modal-header">
+        <span class="modal-title">settings</span>
+        <button id="settings-close" class="modal-close">✕</button>
+      </div>
+
+      <div class="modal-body">
+
+        <section class="modal-section">
+          <h2 class="modal-section-title">general</h2>
+          <div class="modal-row">
+            <label>Search engine</label>
+            <select id="search-engine">
+            </select>
+          </div>
+          <div class="modal-row">
+            <label>Open links in new tab</label>
+            <input id="open-in-new-tab" type="checkbox" />
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h2 class="modal-section-title">appearance</h2>
+          <div class="modal-row">
+            <label>Accent color</label>
+            <select>
+              <option>mauve</option>
+              <option>blue</option>
+              <option>teal</option>
+              <option>green</option>
+              <option>peach</option>
+            </select>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
 </body>
 
 </html>
