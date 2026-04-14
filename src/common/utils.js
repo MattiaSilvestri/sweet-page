@@ -49,7 +49,11 @@ export function loadTab() {
   }
 }
 
-
-export function openSettings() {
-  const settings = document.getElementById("settings");
+export function saveSettings() {
+  const form = document.querySelector("#settings-form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    localStorage.setItem("config", JSON.stringify(data));
+  });
 }

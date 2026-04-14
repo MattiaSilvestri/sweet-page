@@ -1,6 +1,7 @@
 import { LinkButton, Tab } from "../components/buttons.js";
 import config from '../../config.json' assert { type: 'json' };
 import { SettingsModal } from "../components/modal.js";
+import { saveSettings } from "./utils.js";
 
 function addLinkButtons(tab) {
   for (const [key, value] of Object.entries(tab.links)) {
@@ -32,15 +33,19 @@ export function addTab() {
 
 export function addModal() {
   // Read settings from config and create modal
-  const settings = Object.fromEntries(Object.entries(config.settings))
+  // const settings = Object.fromEntries(Object.entries(config.settings))
+  const settings = JSON.parse(localStorage.getItem("config"))
   const settingsModal = new SettingsModal({
     searchEngine: settings["search-engine"],
-    newTab: settings["new-tab"]
+    newTab: settings["open-in-new-tab"]
   })
-
-  // Append settings modal event handler
-  const modal = document.getElementById("settings-modal");
+  // Append settings modal event handlers //
+  // Open modal
   document.getElementById("settings").addEventListener("click", () => modal.classList.add("open"));
-  document.getElementById("settings-close").addEventListener("click", () => modal.classList.remove("open"));
+  // Close modal
+  const modal = document.getElementById("settings-modal");
+  modal.querySelector("#settings-close").addEventListener("click", () => modal.classList.remove("open"));
   modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
+  // Save settings
+  modal.querySelector("#settings-save").addEventListener("click", saveSettings());
 }

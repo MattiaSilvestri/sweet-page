@@ -1,7 +1,7 @@
 {
   "settings": {
     "search-engine": "google",
-    "new-tab": true
+    "open-in-new-tab": true
   },
   "bookmarks": {
     "Bookmarks": {
