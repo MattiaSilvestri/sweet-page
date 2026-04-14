@@ -48,3 +48,8 @@ export function loadTab() {
     openTab(tabName, { btn, skipAnimation: true });
   }
 }
+
+
+export function openSettings() {
+  const settings = document.getElementById("settings");
+}
