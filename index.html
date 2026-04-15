@@ -11,16 +11,14 @@
 <body class="text-ctp-text bg-ctp-mantle">
   <script type="module" src="/src/main.js"></script>
 
-  <main class="relative min-h-screen flex items-center justify-center">
+  <main class="relative min-h-screen flex flex-col items-center justify-center gap-5 py-8">
 
     <div class="absolute bottom-4 right-4">
       <button id="settings" class="settings-button flex items-center"><iconify-icon icon="material-symbols:settings"
           class="mr-2"></iconify-icon>Settings</button>
     </div>
 
-    <div class="absolute top-28 left-1/2 -translate-x-1/2">
-      <img id="avatar" src="" alt="" class="size-16 rounded-full" />
-    </div>
+    <img id="avatar" src="public/banner.gif" alt="Banner" class="top-24 max-h-48 w-auto object-contain" />
 
     <div class="w-[65%] max-w-7xl mx-auto grid gap-y-5"
       style="grid-template-columns: 160px 1fr; grid-template-rows: 44px 420px;">
