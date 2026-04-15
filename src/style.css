@@ -5,9 +5,9 @@
 
 @theme {
   /* Bases */
-  --color-ctp-crust:    #11111b;
-  --color-ctp-mantle:   #181825;
-  --color-ctp-base:     #1e1e2e;
+  --color-ctp-crust: #11111b;
+  --color-ctp-mantle: #181825;
+  --color-ctp-base: #1e1e2e;
 
   /* Surfaces */
   --color-ctp-surface0: #313244;
@@ -21,24 +21,25 @@
 
   /* Text */
   --color-ctp-subtext0: #a6adc8;
-  --color-ctp-subtext:  #a6adc8; /* alias for subtext0 */
+  --color-ctp-subtext: #a6adc8;
+  /* alias for subtext0 */
   --color-ctp-subtext1: #bac2de;
-  --color-ctp-text:     #cdd6f4;
+  --color-ctp-text: #cdd6f4;
 
   /* Accents */
-  --color-ctp-lavender:  #b4befe;
-  --color-ctp-blue:      #89b4fa;
-  --color-ctp-sapphire:  #74c7ec;
-  --color-ctp-sky:       #89dceb;
-  --color-ctp-teal:      #94e2d5;
-  --color-ctp-green:     #a6e3a1;
-  --color-ctp-yellow:    #f9e2af;
-  --color-ctp-peach:     #fab387;
-  --color-ctp-maroon:    #eba0ac;
-  --color-ctp-red:       #f38ba8;
-  --color-ctp-mauve:     #cba6f7;
-  --color-ctp-pink:      #f5c2e7;
-  --color-ctp-flamingo:  #f2cdcd;
+  --color-ctp-lavender: #b4befe;
+  --color-ctp-blue: #89b4fa;
+  --color-ctp-sapphire: #74c7ec;
+  --color-ctp-sky: #89dceb;
+  --color-ctp-teal: #94e2d5;
+  --color-ctp-green: #a6e3a1;
+  --color-ctp-yellow: #f9e2af;
+  --color-ctp-peach: #fab387;
+  --color-ctp-maroon: #eba0ac;
+  --color-ctp-red: #f38ba8;
+  --color-ctp-mauve: #cba6f7;
+  --color-ctp-pink: #f5c2e7;
+  --color-ctp-flamingo: #f2cdcd;
   --color-ctp-rosewater: #f5e0dc;
 
   /* Custom */
@@ -257,8 +258,13 @@ main>div {
 
 /* ── Settings modal ───────────────────────────────── */
 /* display toggled by JS via .open class */
-.modal-backdrop        { display: none; }
-.modal-backdrop.open   { display: flex; }
+.modal-backdrop {
+  display: none;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
 
 /* ── Settings selects ─────────────────────────────── */
 #settings-form select {
