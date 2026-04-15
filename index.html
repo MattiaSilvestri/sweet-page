@@ -44,36 +44,36 @@
   <!-- Settings modal -->
   <div id="settings-modal" class="modal-backdrop fixed inset-0 bg-black/50 z-[100] items-center justify-center">
     <form id="settings-form"
-      class="bg-ctp-base border border-ctp-surface0 rounded-md w-[420px] shadow-[0_8px_48px_rgba(0,0,0,0.6)]">
+      class="bg-ctp-base border border-ctp-surface0 rounded-md w-[580px] shadow-[0_8px_48px_rgba(0,0,0,0.6)]">
 
-      <div class="flex items-center justify-between px-[18px] py-[14px] border-b border-ctp-surface0">
-        <span class="text-[11px] font-medium tracking-[0.14em] uppercase text-ctp-subtext">settings</span>
+      <div class="flex items-center justify-between px-6 py-5 border-b border-ctp-surface0">
+        <span class="text-sm font-medium tracking-[0.14em] uppercase text-ctp-subtext">settings</span>
         <button type="button" id="settings-close"
-          class="bg-transparent border-none text-ctp-surface1 text-xs leading-none px-1 cursor-pointer transition-colors hover:text-ctp-text">✕</button>
+          class="bg-transparent border-none text-ctp-surface1 text-base leading-none px-1 cursor-pointer transition-colors hover:text-ctp-text">✕</button>
       </div>
 
-      <div class="p-[18px] flex flex-col gap-6">
+      <div class="p-6 flex flex-col gap-7">
 
-        <section class="flex flex-col gap-[10px]">
-          <h2 class="text-[9px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">general</h2>
-          <div class="flex items-center justify-between text-xs text-ctp-subtext">
+        <section class="flex flex-col gap-4">
+          <h2 class="text-[11px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">general</h2>
+          <div class="flex items-center justify-between text-sm text-ctp-subtext">
             <label for="search-engine">Search engine</label>
             <select id="search-engine" name="search-engine" data-type="string"
-              class="appearance-none bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-[11px] rounded px-2 py-1 outline-none cursor-pointer"></select>
+              class="appearance-none bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-sm rounded px-3 py-1.5 outline-none cursor-pointer"></select>
           </div>
-          <div class="flex items-center justify-between text-xs text-ctp-subtext">
+          <div class="flex items-center justify-between text-sm text-ctp-subtext">
             <label for="open-in-new-tab">Open links in new tab</label>
             <input id="open-in-new-tab" name="open-in-new-tab" type="checkbox" value="true" data-type="boolean"
-              class="size-3.5 accent-ctp-mauve cursor-pointer" />
+              class="size-4 accent-ctp-mauve cursor-pointer" />
           </div>
         </section>
 
-        <section class="flex flex-col gap-[10px]">
-          <h2 class="text-[9px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">appearance</h2>
-          <div class="flex items-center justify-between text-xs text-ctp-subtext">
+        <section class="flex flex-col gap-4">
+          <h2 class="text-[11px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">appearance</h2>
+          <div class="flex items-center justify-between text-sm text-ctp-subtext">
             <label for="accent-color">Accent color</label>
             <select id="accent-color" name="accent-color"
-              class="appearance-none bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-[11px] rounded px-2 py-1 outline-none cursor-pointer">
+              class="appearance-none bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-sm rounded px-3 py-1.5 outline-none cursor-pointer">
               <option value="mauve">mauve</option>
               <option value="blue">blue</option>
               <option value="teal">teal</option>
@@ -85,9 +85,9 @@
 
       </div>
 
-      <div class="px-[18px] py-3 border-t border-ctp-surface0 flex justify-end">
+      <div class="px-6 py-4 border-t border-ctp-surface0 flex justify-end">
         <button type="submit" id="settings-save"
-          class="text-[11px] font-medium tracking-[0.1em] uppercase text-ctp-crust bg-ctp-mauve border-none rounded px-4 py-1.5 cursor-pointer transition-all hover:brightness-110 active:brightness-90">Save</button>
+          class="text-sm font-medium tracking-[0.1em] uppercase text-ctp-crust bg-ctp-mauve border-none rounded px-5 py-2 cursor-pointer transition-all hover:brightness-110 active:brightness-90">Save</button>
       </div>
 
     </form>
