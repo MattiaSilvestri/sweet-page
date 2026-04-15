@@ -2,6 +2,7 @@ import { LinkButton, Tab } from "../components/buttons.js";
 import config from '../../config.json' assert { type: 'json' };
 import { SettingsModal } from "../components/modal.js";
 import { readSettings, saveSettings } from "./settings.js";
+import { SearchBar } from "../components/searcBar.js";
 
 function addLinkButtons(tab) {
   for (const [key, value] of Object.entries(tab.links)) {
@@ -17,6 +18,10 @@ function addLinkButtons(tab) {
       // },
     })
   }
+}
+
+export function addSearchBar() {
+  new SearchBar();
 }
 
 export function addTab() {

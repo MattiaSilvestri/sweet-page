@@ -1,10 +1,11 @@
 import './style.css'
 import { loadTab, openTab } from "./common/utils";
-import { addModal, addTab } from "./common/components";
+import { addModal, addSearchBar, addTab } from "./common/components";
 import "iconify-icon";
-import { applySettings } from './common/settings';
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Add search bar settings
+  addSearchBar()
   // Add link buttons
   addTab();
   // Attach event listeners for tab buttons
@@ -19,6 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
   loadTab();
   // Add settings modal
   addModal();
-  // Apply settings
-  applySettings();
 })

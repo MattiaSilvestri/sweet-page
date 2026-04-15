@@ -17,32 +17,6 @@ function parseFormData(form) {
   );
 }
 
-
-export function applySettings() {
-  const settings = readSettings();
-  const form = document.querySelector("#search-form");
-  const prompt = document.querySelector(".prompt-path");
-  if (settings) {
-    const searchEngine = settings["search-engine"];
-    const newTab = settings["open-in-new-tab"];
-    // Apply search engine setting
-    switch (searchEngine) {
-      case "google":
-        form.action = "https://www.google.com/search";
-        prompt.textContent = `~/google`;
-        break;
-      case "duckduckgo":
-        form.action = "https://duckduckgo.com/";
-        prompt.textContent = `~/duckduckgo`;
-        break;
-      case "brave":
-        form.action = "https://search.brave.com/search";
-        prompt.textContent = `~/brave`;
-        break;
-    }
-  }
-}
-
 export function readSettings() {
   const storedSettings = JSON.parse(localStorage.getItem("settings"));
   return storedSettings ? storedSettings : DEFAULT_SETTINGS
@@ -55,7 +29,6 @@ export function saveSettings(modal) {
     const data = parseFormData(form);
     localStorage.setItem("settings", JSON.stringify(data));
     window.dispatchEvent(new CustomEvent("settings-changed", { detail: data }));
-    applySettings();
     modal.classList.remove("open");
   });
 }

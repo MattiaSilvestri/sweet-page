@@ -49,6 +49,10 @@ export class LinkButton {
       button.prepend(iconElement);
     }
 
+    return button;
+  }
+
+  applySettings(button) {
     // Manage click
     button.target = this.settings["open-in-new-tab"] ? "_blank" : "_self";
     button.href = this.config.href;
@@ -57,12 +61,12 @@ export class LinkButton {
     window.addEventListener("settings-changed", (e) => {
       button.target = e.detail["open-in-new-tab"] ? "_blank" : "_self";
     });
-
-    return button;
   }
 
   render() {
-    this.config.container.appendChild(this.createButtonElement());
+    const button = this.createButtonElement();
+    this.applySettings(button)
+    this.config.container.appendChild(button);
   }
 }
 
