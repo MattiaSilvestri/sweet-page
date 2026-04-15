@@ -46,31 +46,105 @@
   --color-content-bg: #151521;
 }
 
+/* ── Accent theme variable ─────────────────────────────────────────── */
+:root {
+  --accent: #cba6f7;
+  --accent-rgb: 203, 166, 247;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
 body {
   font-family: "JetBrains Mono", monospace;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  background-color: var(--color-ctp-mantle);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 12% 60%, rgba(203, 166, 247, 0.055) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 70% at 88% 15%, rgba(137, 180, 250, 0.04) 0%, transparent 65%);
 }
 
-/* ── Load animation ───────────────────────────────── */
+/* ── Scanlines overlay ─────────────────────────────────────────────── */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.055) 3px,
+    rgba(0, 0, 0, 0.055) 4px
+  );
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* ── Animations ────────────────────────────────────────────────────── */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-main>div {
-  animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.05s;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
 }
 
-/* ── Search bar ───────────────────────────────────── */
+@keyframes chevronPulse {
+  0%, 100% {
+    opacity: 0.6;
+    text-shadow: 0 0 4px rgba(var(--accent-rgb), 0.25);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 14px rgba(var(--accent-rgb), 0.7), 0 0 4px rgba(var(--accent-rgb), 0.5);
+  }
+}
+
+/* ── Element animations ────────────────────────────────────────────── */
+#avatar {
+  animation:
+    fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0s both,
+    float 7s ease-in-out 0.8s infinite;
+  filter:
+    drop-shadow(0 10px 28px rgba(var(--accent-rgb), 0.16))
+    drop-shadow(0 0  8px  rgba(var(--accent-rgb), 0.07));
+}
+
+/* Absolute corner elements (clock, settings button) */
+main > div.absolute {
+  animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+}
+
+/* Main content grid */
+main > div:not(.absolute) {
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+/* ── Clock display ─────────────────────────────────────────────────── */
+#clock-time {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--color-ctp-surface2);
+  line-height: 1.4;
+}
+
+#clock-date {
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--color-ctp-surface1);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ── Search bar ────────────────────────────────────────────────────── */
 .search-prompt {
   display: flex;
   align-items: center;
@@ -92,6 +166,7 @@ main>div {
   flex-shrink: 0;
   user-select: none;
   margin-top: -1px;
+  animation: chevronPulse 2.5s ease-in-out infinite;
 }
 
 .search-prompt form {
@@ -112,25 +187,27 @@ main>div {
   font-weight: 400;
   padding: 0 2px;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   letter-spacing: 0.02em;
 }
 
 .search-input::placeholder {
-  color: var(--color-ctp-surface0);
+  color: var(--color-ctp-surface1);
   font-style: italic;
 }
 
 .search-input:focus {
-  border-bottom-color: var(--color-ctp-mauve)
+  border-bottom-color: var(--accent);
+  box-shadow: 0 2px 0 -1px rgba(var(--accent-rgb), 0.22);
 }
 
-/* ── Tab sidebar ──────────────────────────────────── */
+/* ── Tab sidebar ───────────────────────────────────────────────────── */
 .tabbed-container {
   background: transparent !important;
   border: none !important;
-  border-right: 3px solid var(--color-ctp-blue) !important;
+  border-right: 2px solid rgba(var(--accent-rgb), 0.45) !important;
   border-radius: 0 !important;
+  box-shadow: 2px 0 18px -4px rgba(var(--accent-rgb), 0.12);
 }
 
 .tablinks {
@@ -147,13 +224,13 @@ main>div {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-ctp-surface1);
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
   display: flex;
   align-items: center;
   gap: 7px;
 }
 
-/* bullet indicator — hidden by default, visible on active */
+/* bullet indicator */
 .tablinks::before {
   content: "";
   width: 5px;
@@ -161,7 +238,7 @@ main>div {
   border-radius: 50%;
   background: transparent;
   flex-shrink: 0;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .tablinks:hover {
@@ -169,20 +246,16 @@ main>div {
 }
 
 .tablinks.active {
-  color: var(--color-ctp-mauve);
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.45);
 }
 
 .tablinks.active::before {
-  background: var(--color-ctp-mauve);
+  background: var(--accent);
+  box-shadow: 0 0 7px 1px rgba(var(--accent-rgb), 0.8);
 }
 
-/* ── Tab content ──────────────────────────────────── */
-/* .tab-board { */
-/*   position: relative; */
-/*   overflow: hidden; */
-/*   height: 100%; */
-/* } */
-
+/* ── Tab content ───────────────────────────────────────────────────── */
 .tab-content {
   position: absolute !important;
   top: 0;
@@ -190,7 +263,9 @@ main>div {
   width: 100%;
   height: 100%;
   transform: translateY(-105%);
-  background: var(--color-content-bg) !important;
+  background-color: var(--color-content-bg) !important;
+  background-image: radial-gradient(circle at 1px 1px, rgba(69, 71, 90, 0.2) 1px, transparent 0) !important;
+  background-size: 22px 22px !important;
   border: 1px solid var(--color-ctp-surface0) !important;
   border-left: none !important;
   border-radius: 0 6px 6px 0 !important;
@@ -201,6 +276,7 @@ main>div {
   flex-wrap: nowrap;
   gap: 2px;
   align-content: flex-start;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.25);
 }
 
 .tab-content::-webkit-scrollbar {
@@ -216,7 +292,7 @@ main>div {
   border-radius: 2px;
 }
 
-/* ── Link buttons ─────────────────────────────────── */
+/* ── Link buttons ──────────────────────────────────────────────────── */
 .base-button {
   background: transparent !important;
   border: none !important;
@@ -235,7 +311,7 @@ main>div {
   align-items: center;
   gap: 7px;
   opacity: 0.4;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.15s ease, text-shadow 0.15s ease;
 }
 
 .base-button::before {
@@ -245,19 +321,23 @@ main>div {
   opacity: 1;
   flex-shrink: 0;
   width: 10px;
-  transition: opacity 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .base-button:hover {
   opacity: 1;
+  text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.18);
+}
+
+.base-button:hover::before {
+  color: var(--accent);
 }
 
 .base-button:active {
   opacity: 0.7;
 }
 
-/* ── Settings modal ───────────────────────────────── */
-/* display toggled by JS via .open class */
+/* ── Settings modal ────────────────────────────────────────────────── */
 .modal-backdrop {
   display: none;
 }
@@ -266,7 +346,7 @@ main>div {
   display: flex;
 }
 
-/* ── Settings selects ─────────────────────────────── */
+/* ── Settings selects ──────────────────────────────────────────────── */
 #settings-form select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath fill='%23a6adc8' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E");
@@ -280,7 +360,12 @@ main>div {
   color: var(--color-ctp-text);
 }
 
-/* ── Settings button ──────────────────────────────── */
+/* Save button respects dynamic accent color */
+#settings-save {
+  background-color: var(--accent) !important;
+}
+
+/* ── Settings button ───────────────────────────────────────────────── */
 .settings-button {
   font-family: "JetBrains Mono", monospace !important;
   font-size: 11px !important;
@@ -292,10 +377,11 @@ main>div {
   padding: 5px 10px !important;
   cursor: pointer;
   background: transparent !important;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .settings-button:hover {
   color: var(--color-ctp-surface2) !important;
   border-color: var(--color-ctp-surface1) !important;
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);
 }

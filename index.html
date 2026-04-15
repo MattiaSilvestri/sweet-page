@@ -11,8 +11,18 @@
 <body class="text-ctp-text bg-ctp-mantle">
   <script type="module" src="/src/main.js"></script>
 
+  <!-- CRT scanline texture overlay -->
+  <div class="scanlines"></div>
+
   <main class="relative min-h-screen flex flex-col items-center justify-center gap-5 py-8">
 
+    <!-- Live clock -->
+    <div id="clock-display" class="absolute top-4 right-4 text-right select-none pointer-events-none">
+      <div id="clock-time">--:--:--</div>
+      <div id="clock-date">--- --- --</div>
+    </div>
+
+    <!-- Settings button -->
     <div class="absolute bottom-4 right-4">
       <button id="settings" class="settings-button flex items-center"><iconify-icon icon="material-symbols:settings"
           class="mr-2"></iconify-icon>Settings</button>
@@ -74,7 +84,7 @@
           <h2 class="text-[11px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">appearance</h2>
           <div class="flex items-center justify-between text-sm text-ctp-subtext">
             <label for="accent-color">Accent color</label>
-            <select id="accent-color" name="accent-color"
+            <select id="accent-color" name="accent-color" data-type="string"
               class="appearance-none bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-sm rounded px-3 py-1.5 outline-none cursor-pointer">
               <option value="mauve">mauve</option>
               <option value="blue">blue</option>

@@ -2,7 +2,8 @@ export class SettingsModal {
   constructor(options) {
     this.config = {
       searchEngine: options.searchEngine || "google",
-      newTab: options.newTab || false
+      newTab: options.newTab || false,
+      accentColor: options.accentColor || "mauve",
     }
     this.modal = document.getElementById("settings-modal");
 
@@ -29,6 +30,10 @@ export class SettingsModal {
     // Populate new tab option
     const newTabCheckbox = this.modal.querySelector("#open-in-new-tab");
     newTabCheckbox.checked = this.config.newTab
+
+    // Populate accent color select
+    const accentSelect = this.modal.querySelector("#accent-color");
+    if (accentSelect) accentSelect.value = this.config.accentColor;
   }
 
   render() {

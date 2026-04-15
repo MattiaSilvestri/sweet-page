@@ -8,14 +8,10 @@ function addLinkButtons(tab) {
   for (const [key, value] of Object.entries(tab.links)) {
     new LinkButton({
       text: key,
-      container: document.getElementById("links"),
       iconColor: value["icon-color"],
       icon: value.icon,
-      container: document.getElementById(tab.config.name), // Create inside tab
+      container: document.getElementById(tab.config.name),
       href: value.link
-      // onClick: () => {
-      //   window.open(value.link);
-      // },
     })
   }
 }
@@ -26,26 +22,21 @@ export function addSearchBar() {
 
 export function addTab() {
   for (const [key, value] of Object.entries(config.bookmarks)) {
-    // Create new tab first
     const tab = new Tab({
       text: key,
       links: value.links
     })
-
-    // Add buttons for this tab
     addLinkButtons(tab);
   }
 }
 
 export function addModal() {
-  // Read settings from config and create modal
-  // const settings = Object.fromEntries(Object.entries(config.settings))
   const settings = readSettings();
   const settingsModal = new SettingsModal({
     searchEngine: settings ? settings["search-engine"] : null,
     newTab: settings ? settings["open-in-new-tab"] : null,
+    accentColor: settings ? settings["accent-color"] : null,
   })
-  // Append settings modal event handlers //
   // Open modal
   document.getElementById("settings").addEventListener("click", () => modal.classList.add("open"));
   // Close modal
