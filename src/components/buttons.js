@@ -1,22 +1,26 @@
+import { readSettings } from "../common/settings";
+
 export class LinkButton {
   constructor(options) {
     // Default config
     this.config = {
       text: options.text || "Button",
       iconColor: options.iconColor || "text-ctp-text",
-      onClick: options.onClick || function() { },
+      // onClick: options.onClick || function() { },
+      href: options.href || "#",
       disabled: options.disabled || false,
       container: options.container || document.body,
       className: options.className || "",
       icon: options.icon || "",
     };
+    this.settings = readSettings();
 
     // Render button to the specified container
     this.render();
   }
 
   createButtonElement() {
-    const button = document.createElement("button");
+    const button = document.createElement("a");
 
     // Add text
     button.textContent = this.config.text;
@@ -45,12 +49,21 @@ export class LinkButton {
       button.prepend(iconElement);
     }
 
+    // Manage click
+    button.target = this.settings["open-in-new-tab"] ? "_blank" : "_self";
+    button.href = this.config.href;
+
+    // Reload settings reactively
+    window.addEventListener("settings-changed", (e) => {
+      button.target = e.detail["open-in-new-tab"] ? "_blank" : "_self";
+    });
+
     // Click event
-    button.addEventListener("click", (e) => {
-      if (!this.config.disabled) {
-        this.config.onClick(e);
-      }
-    })
+    // button.addEventListener("click", (e) => {
+    //   if (!this.config.disabled) {
+    //     this.config.onClick(e);
+    //   }
+    // })
 
     return button;
   }

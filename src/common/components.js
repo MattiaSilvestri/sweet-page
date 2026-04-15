@@ -11,9 +11,10 @@ function addLinkButtons(tab) {
       iconColor: value["icon-color"],
       icon: value.icon,
       container: document.getElementById(tab.config.name), // Create inside tab
-      onClick: () => {
-        window.open(value.link, "_blank");
-      },
+      href: value.link
+      // onClick: () => {
+      //   window.open(value.link);
+      // },
     })
   }
 }

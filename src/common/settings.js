@@ -1,3 +1,5 @@
+import { DEFAULT_SETTINGS } from "./defaults";
+
 export function applySettings() {
   const settings = readSettings();
   const form = document.querySelector("#search-form");
@@ -24,7 +26,8 @@ export function applySettings() {
 }
 
 export function readSettings() {
-  return JSON.parse(localStorage.getItem("settings"));
+  const storedSettings = JSON.parse(localStorage.getItem("settings"));
+  return storedSettings ? storedSettings : DEFAULT_SETTINGS
 }
 
 export function saveSettings(modal) {
@@ -33,6 +36,7 @@ export function saveSettings(modal) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     localStorage.setItem("settings", JSON.stringify(data));
+    window.dispatchEvent(new CustomEvent("settings-changed", { detail: data }));
     applySettings();
     modal.classList.remove("open");
   });
