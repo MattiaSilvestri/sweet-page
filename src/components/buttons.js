@@ -58,13 +58,6 @@ export class LinkButton {
       button.target = e.detail["open-in-new-tab"] ? "_blank" : "_self";
     });
 
-    // Click event
-    // button.addEventListener("click", (e) => {
-    //   if (!this.config.disabled) {
-    //     this.config.onClick(e);
-    //   }
-    // })
-
     return button;
   }
 

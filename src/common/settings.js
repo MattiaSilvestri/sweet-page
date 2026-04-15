@@ -1,5 +1,23 @@
 import { DEFAULT_SETTINGS } from "./defaults";
 
+function parseFormData(form) {
+  const raw = Object.fromEntries(new FormData(form));
+
+  return Object.fromEntries(
+    [...form.elements]
+      .filter(el => el.name)
+      .map(el => {
+        const value = raw[el.name];
+        switch (el.dataset.type) {
+          case "boolean": return [el.name, value === "true" || el.checked];
+          case "number": return [el.name, Number(value)];
+          default: return [el.name, value];
+        }
+      })
+  );
+}
+
+
 export function applySettings() {
   const settings = readSettings();
   const form = document.querySelector("#search-form");
@@ -34,7 +52,7 @@ export function saveSettings(modal) {
   const form = document.querySelector("#settings-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(form));
+    const data = parseFormData(form);
     localStorage.setItem("settings", JSON.stringify(data));
     window.dispatchEvent(new CustomEvent("settings-changed", { detail: data }));
     applySettings();
