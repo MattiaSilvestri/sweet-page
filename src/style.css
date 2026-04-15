@@ -305,5 +305,6 @@ main>div {
 
 /* ── Banner ──────────────────────────────────── */
 #banner {
-  opacity: 0.4;
+  opacity: 0.8;
+  border-radius: 12px;
 }
