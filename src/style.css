@@ -303,6 +303,31 @@ main>div {
   border-color: var(--color-ctp-surface1) !important;
 }
 
+/* ── Clock ────────────────────────────────────── */
+#clock-display {
+  text-align: left;
+  line-height: 1;
+}
+
+#clock-time {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ctp-text);
+  display: flex;
+  align-items: baseline;
+}
+
+#clock-date {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ctp-surface2);
+  margin-top: 6px;
+}
+
 /* ── Banner ──────────────────────────────────── */
 #banner {
   opacity: 0.8;
