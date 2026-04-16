@@ -6,6 +6,8 @@ import "iconify-icon";
 document.addEventListener("DOMContentLoaded", () => {
   // Add search bar settings
   addSearchBar()
+  // Add settings modal
+  addModal();
   // Add link buttons
   addTab();
   // Attach event listeners for tab buttons
@@ -18,6 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Load last tab
   loadTab();
-  // Add settings modal
-  addModal();
 })

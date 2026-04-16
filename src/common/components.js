@@ -41,17 +41,17 @@ export function addModal() {
   // Read settings from config and create modal
   // const settings = Object.fromEntries(Object.entries(config.settings))
   const settings = readSettings();
-  const settingsModal = new SettingsModal({
+  new SettingsModal({
     searchEngine: settings ? settings["search-engine"] : null,
     newTab: settings ? settings["open-in-new-tab"] : null,
   })
   // Append settings modal event handlers //
   // Open modal
+  const modal = document.getElementById("settings-modal");
   document.getElementById("settings").addEventListener("click", () => modal.classList.add("open"));
   // Close modal
-  const modal = document.getElementById("settings-modal");
   modal.querySelector("#settings-close").addEventListener("click", () => modal.classList.remove("open"));
   modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
   // Save settings
-  modal.querySelector("#settings-save").addEventListener("click", saveSettings(modal));
+  modal.querySelector("#settings-save").addEventListener("click", () => saveSettings(modal));
 }
