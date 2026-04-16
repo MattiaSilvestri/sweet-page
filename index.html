@@ -13,6 +13,12 @@
 
   <main class="relative min-h-screen flex flex-col items-center">
 
+    <!-- Live clock -->
+    <div id="clock-display" class="absolute top-4 right-4 text-right select-none pointer-events-none">
+      <div id="clock-time"></div>
+      <div id="clock-date"></div>
+    </div>
+
     <div class="absolute bottom-4 right-4 z-10">
       <button id="settings" class="settings-button flex items-center"><iconify-icon icon="material-symbols:settings"
           class="mr-2"></iconify-icon>Settings</button>
