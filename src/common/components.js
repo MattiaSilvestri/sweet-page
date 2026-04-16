@@ -38,9 +38,9 @@ export function addModal() {
     accentColor: settings ? settings["accent-color"] : null,
   })
   // Open modal
+  const modal = document.getElementById("settings-modal");
   document.getElementById("settings").addEventListener("click", () => modal.classList.add("open"));
   // Close modal
-  const modal = document.getElementById("settings-modal");
   modal.querySelector("#settings-close").addEventListener("click", () => modal.classList.remove("open"));
   modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
   // Save settings
