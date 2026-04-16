@@ -125,22 +125,24 @@ main>div {
   border-bottom-color: var(--color-ctp-mauve)
 }
 
-/* ── Tab sidebar ──────────────────────────────────── */
+/* ── Tab bar (below content) ──────────────────────── */
 .tabbed-container {
+  display: flex;
+  flex-direction: row;
   background: transparent !important;
   border: none !important;
-  /* border-left: 3px solid var(--color-ctp-blue) !important; */
-  /* border-right: 2px dotted var(--color-ctp-surface1) !important; */
+  border-top: 1px solid var(--color-ctp-surface0) !important;
   border-radius: 0 !important;
 }
 
 .tablinks {
   position: relative;
-  width: 100%;
-  text-align: left;
+  width: auto;
   background: transparent;
   border: none;
-  padding: 9px 14px 9px 12px;
+  border-bottom: 2px solid transparent;
+  padding: 8px 16px;
+  margin-bottom: -1px;
   cursor: pointer;
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;
@@ -148,21 +150,13 @@ main>div {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-ctp-surface1);
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
   display: flex;
   align-items: center;
-  gap: 7px;
 }
 
-/* bullet indicator — hidden by default, visible on active */
 .tablinks::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: transparent;
-  flex-shrink: 0;
-  transition: background 0.15s ease;
+  display: none;
 }
 
 .tablinks:hover {
@@ -171,18 +165,13 @@ main>div {
 
 .tablinks.active {
   color: var(--color-ctp-mauve);
-}
-
-.tablinks.active::before {
-  background: var(--color-ctp-mauve);
+  border-bottom-color: var(--color-ctp-mauve);
 }
 
 /* ── Tab content ──────────────────────────────────── */
-/* .tab-board { */
-/*   position: relative; */
-/*   overflow: hidden; */
-/*   height: 100%; */
-/* } */
+.tab-board {
+  height: 420px;
+}
 
 .tab-content {
   position: absolute !important;
@@ -193,11 +182,7 @@ main>div {
   transform: translateY(-105%);
   background: transparent !important;
   border: none !important;
-  /* background: var(--color-content-bg) !important; */
-  /* border: 1px solid var(--color-ctp-surface0) !important; */
-  border-left: none !important;
-  border-radius: 0 6px 6px 0 !important;
-  /* padding: 18px !important; */
+  border-radius: 0 !important;
   overflow-y: auto;
   display: flex;
   flex-direction: column;

@@ -23,11 +23,10 @@
     </div>
 
     <div class="flex-1 flex justify-center w-full">
-      <div class="w-[65%] max-w-7xl mx-auto grid gap-y-5"
-        style="grid-template-columns: 160px 1fr; grid-template-rows: 44px 420px;">
+      <div class="w-[65%] max-w-7xl mx-auto flex flex-col gap-y-5">
 
         <!-- Search bar with terminal prompt -->
-        <div class="col-span-2 search-prompt">
+        <div class="search-prompt">
           <span class="prompt-path text-ctp-surface1">~/google</span>
           <span class="prompt-chevron text-ctp-mauve">›</span>
           <form id="search-form" action="https://www.google.com/search" method="GET">
@@ -35,12 +34,12 @@
           </form>
         </div>
 
-        <!-- Tab sidebar -->
-        <div class="tabbed-container flex flex-col overflow-hidden">
-        </div>
-
         <!-- Tab content panels -->
         <div class="tab-board overflow-hidden relative">
+        </div>
+
+        <!-- Tab buttons (below content) -->
+        <div class="tabbed-container overflow-hidden">
         </div>
 
       </div>
