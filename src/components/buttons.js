@@ -8,7 +8,6 @@ export class LinkButton {
       iconColor: options.iconColor || "text-ctp-text",
       // onClick: options.onClick || function() { },
       href: options.href || "#",
-      disabled: options.disabled || false,
       container: options.container || document.body,
       className: options.className || "",
       icon: options.icon || "",
@@ -34,12 +33,6 @@ export class LinkButton {
     // Set colors
     button.classList.add("text-ctp-text");
     button.style.backgroundColor = "transparent";
-
-    // Set disabled if needed
-    if (this.config.disabled) {
-      button.disabled = true;
-      button.classList.add("disabled");
-    }
 
     // Add icon 
     if (this.config.icon) {

@@ -1,4 +1,4 @@
-import { DEFAULT_SETTINGS } from "./defaults";
+import { DEFAULT_CONFIG, DEFAULT_SETTINGS } from "./defaults";
 
 function parseFormData(form) {
   const raw = Object.fromEntries(new FormData(form));
@@ -31,5 +31,10 @@ export function saveSettings(modal) {
     window.dispatchEvent(new CustomEvent("settings-changed", { detail: data }));
     modal.classList.remove("open");
   });
+}
+
+export function readConfig() {
+  const storedConfig = JSON.parse(localStorage.getItem("config"));
+  return storedConfig ? storedConfig : DEFAULT_CONFIG;
 }
 

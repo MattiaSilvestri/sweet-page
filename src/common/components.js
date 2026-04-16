@@ -25,7 +25,7 @@ export function addSearchBar() {
 }
 
 export function addTab() {
-  for (const [key, value] of Object.entries(config.bookmarks)) {
+  for (const [key, value] of Object.entries(config)) {
     // Create new tab first
     const tab = new Tab({
       text: key,
