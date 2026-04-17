@@ -9,6 +9,12 @@ export class Poetry {
 
   async render() {
     const poetry = await getPoetry(this.linecount);
-    document.getElementById("poetry").innerHTML = poetry.formatted;
+    const poetryEl = document.getElementById("poetry");
+    const authorEl = document.createElement("div");
+    authorEl.id = "author";
+    authorEl.classList.add("mt-3", "italic", "flex", "justify-end");
+    authorEl.textContent = poetry.author;
+    poetryEl.textContent = poetry.formatted;
+    poetryEl.appendChild(authorEl);
   }
 }
