@@ -4,11 +4,12 @@ export class Poetry {
   constructor(options) {
     this.linecount = options.linecount || 7;
 
-    this.render();
+    this.ready = this.render();
   }
 
   async render() {
     const poetry = await getPoetry(this.linecount);
+    poetry.timestamp = new Date().toLocaleString();
     const poetryEl = document.getElementById("poetry");
     const authorEl = document.createElement("div");
     authorEl.id = "author";
@@ -16,5 +17,6 @@ export class Poetry {
     authorEl.textContent = poetry.author;
     poetryEl.textContent = poetry.formatted;
     poetryEl.appendChild(authorEl);
+    this.poetry = poetry;
   }
 }

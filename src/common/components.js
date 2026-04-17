@@ -28,8 +28,17 @@ export function addClock() {
   setInterval(() => clock.updateClock(), 1000);
 }
 
-export function addPoetry(lines) {
-  new Poetry(lines);
+export async function addPoetry(linecount) {
+  if (!localStorage.getItem("poetry")) {
+    const poetry = new Poetry(linecount);
+    await poetry.ready;
+    localStorage.setItem("poetry", JSON.stringify(poetry.poetry));
+    return;
+  }
+
+  // const poetry = JSON.parse(localStorage.getItem("poetry"));
+  // now = new Date();
+  // if poetry.timestamp 
 }
 
 export function addSearchBar() {
