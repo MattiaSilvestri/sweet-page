@@ -5,7 +5,7 @@ Simple static startpage made with HTML + SCSS.
 - [x] Add icon support for bookmark links
 - [x] Add settings support
 - [x] Add cover image and poetry
-- [ ] Add time settings for poetry update
+- [ ] Add daily poetry update
 - [ ] Add subcategories inside the same tab
 - [ ] Add support for uploding banners
 - [ ] Add button to easily add new bookmarks
