@@ -52,11 +52,7 @@ export function addTab() {
 export function addModal() {
   // Read settings from config and create modal
   // const settings = Object.fromEntries(Object.entries(config.settings))
-  const settings = readSettings();
-  new SettingsModal({
-    searchEngine: settings ? settings["search-engine"] : null,
-    newTab: settings ? settings["open-in-new-tab"] : null,
-  })
+  new SettingsModal()
   // Append settings modal event handlers //
   // Open modal
   const modal = document.getElementById("settings-modal");

@@ -1,8 +1,12 @@
+import { readSettings } from "../common/settings";
+
 export class SettingsModal {
-  constructor(options) {
-    this.config = {
-      searchEngine: options.searchEngine || "google",
-      newTab: options.newTab || false
+  constructor() {
+    const settings = readSettings();
+    this.settings = {
+      searchEngine: settings["search-engine"],
+      newTab: settings["open-in-new-tab"],
+      showSeconds: settings["show-seconds"]
     }
     this.modal = document.getElementById("settings-modal");
 
@@ -23,12 +27,16 @@ export class SettingsModal {
       option.value = value;
       option.textContent = label;
       searchEngineSelect.appendChild(option);
-      searchEngineSelect.value = this.config.searchEngine
+      searchEngineSelect.value = this.settings.searchEngine
     });
 
     // Populate new tab option
     const newTabCheckbox = this.modal.querySelector("#open-in-new-tab");
-    newTabCheckbox.checked = this.config.newTab
+    newTabCheckbox.checked = this.settings.newTab
+
+    // Populate clock options
+    const secondsCheckBox = this.modal.querySelector("#show-seconds");
+    secondsCheckBox.checked = this.settings.showSeconds
   }
 
   render() {
