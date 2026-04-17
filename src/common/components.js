@@ -4,6 +4,7 @@ import { SettingsModal } from "../components/modal.js";
 import { readSettings, saveSettings } from "./settings.js";
 import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
+import { Poetry } from "../components/poetry.js";
 
 function addLinkButtons(tab) {
   for (const [key, value] of Object.entries(tab.links)) {
@@ -25,6 +26,10 @@ export function addClock() {
   const clock = new Clock();
   clock.updateClock();
   setInterval(() => clock.updateClock(), 1000);
+}
+
+export function addPoetry(lines) {
+  new Poetry(lines);
 }
 
 export function addSearchBar() {
