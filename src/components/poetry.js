@@ -7,6 +7,10 @@ export class Poetry {
     this.ready = this.render();
   }
 
+  async fetchPoetry() {
+
+  }
+
   async render() {
     const poetry = await getPoetry(this.linecount);
     poetry.timestamp = new Date().toLocaleString();
