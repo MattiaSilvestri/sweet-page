@@ -10,7 +10,6 @@ function addLinkButtons(tab) {
   for (const [key, value] of Object.entries(tab.links)) {
     new LinkButton({
       text: key,
-      container: document.getElementById("links"),
       iconColor: value["icon-color"],
       icon: value.icon,
       container: document.getElementById(tab.config.name), // Create inside tab
