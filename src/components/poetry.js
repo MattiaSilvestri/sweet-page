@@ -3,24 +3,39 @@ import { getPoetry } from "../services/poetry";
 export class Poetry {
   constructor(options) {
     this.linecount = options.linecount || 7;
+    this.poetry = options.poetry || {};
+  }
 
-    this.ready = this.render();
+  static async create(options) {
+    const instance = new Poetry(options);
+    await instance.fetchPoetry();
+    instance.render();
+    return instance;
+  }
+
+  static createFromPoetry(options) {
+    if (!options.poetry) {
+      throw new TypeError("No poetry provided");
+    };
+    const instance = new Poetry(options);
+    instance.render();
+    return instance;
   }
 
   async fetchPoetry() {
-
-  }
-
-  async render() {
     const poetry = await getPoetry(this.linecount);
     poetry.timestamp = new Date().toLocaleString();
+    this.poetry = poetry;
+    return poetry;
+  }
+
+  render() {
     const poetryEl = document.getElementById("poetry");
     const authorEl = document.createElement("div");
     authorEl.id = "author";
     authorEl.classList.add("mt-3", "italic", "flex", "justify-end");
-    authorEl.textContent = poetry.author;
-    poetryEl.textContent = poetry.formatted;
+    authorEl.textContent = this.poetry.author;
+    poetryEl.textContent = this.poetry.formatted;
     poetryEl.appendChild(authorEl);
-    this.poetry = poetry;
   }
 }

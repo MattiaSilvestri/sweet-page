@@ -31,30 +31,20 @@ export function addClock() {
 
 export async function addPoetry(linecount) {
   if (!localStorage.getItem("poetry")) {
-    const dailyPoetry = new Poetry(linecount);
-    await dailyPoetry.ready;
+    const dailyPoetry = await Poetry.create({ linecount: linecount });
     localStorage.setItem("poetry", JSON.stringify(dailyPoetry.poetry));
     return;
   }
 
   const dailyPoetry = JSON.parse(localStorage.getItem("poetry"));
-  const [date, time] = dailyPoetry.timestamp.split(", ");
-  const [day, month, year] = date.split("/");
-  const poetryDate = new Date(`${year}-${month}-${day}T${time}`);
+  const poetryDate = new Date(dailyPoetry.timestamp);
   const isAnotherDay = new Date().toDateString() !== poetryDate.toDateString();
   if (isAnotherDay) {
-    const dailyPoetry = new Poetry(linecount);
-    await dailyPoetry.ready;
+    const dailyPoetry = await Poetry.create({ linecount });
     localStorage.setItem("poetry", JSON.stringify(dailyPoetry.poetry));
   } else {
     const dailyPoetry = JSON.parse(localStorage.getItem("poetry"));
-    const poetryEl = document.getElementById("poetry");
-    const authorEl = document.createElement("div");
-    authorEl.id = "author";
-    authorEl.classList.add("mt-3", "italic", "flex", "justify-end");
-    authorEl.textContent = dailyPoetry.author;
-    poetryEl.textContent = dailyPoetry.formatted;
-    poetryEl.appendChild(authorEl);
+    Poetry.createFromPoetry({ poetry: dailyPoetry });
   }
 }
 
