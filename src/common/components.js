@@ -1,11 +1,10 @@
 import { LinkButton, Tab } from "../components/buttons.js";
 import config from '../../config.json' assert { type: 'json' };
 import { SettingsModal } from "../components/modal.js";
-import { readSettings, saveSettings } from "./settings.js";
+import { saveSettings } from "./settings.js";
 import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
 import { Poetry } from "../components/poetry.js";
-import dayjs from "dayjs";
 
 function addLinkButtons(tab) {
   for (const [key, value] of Object.entries(tab.links)) {

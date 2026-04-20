@@ -1,5 +1,11 @@
 import { readSettings } from "../common/settings";
 
+class BaseButton {
+  constructor(options) {
+
+  }
+}
+
 export class LinkButton {
   constructor(options) {
     // Default config
