@@ -117,7 +117,14 @@ export class GroupButton {
   createGroupButtonElement() {
     const buttonGroup = document.createElement("div");
     buttonGroup.classList.add("button-group", "flex", "flex-col", "justify-start");
+    // FIX: fix possible duplicate id for groups with same name
     buttonGroup.id = this.config.name;
+
+    const label = document.createElement("span");
+    label.classList.add("button-group-label", "align-items-center");
+    label.textContent = this.config.name;
+    buttonGroup.appendChild(label);
+
     return buttonGroup;
   }
 
