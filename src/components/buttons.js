@@ -2,26 +2,15 @@ import { readSettings } from "../common/settings";
 
 class BaseButton {
   constructor(options) {
-
-  }
-}
-
-export class LinkButton {
-  constructor(options) {
-    // Default config
     this.config = {
       text: options.text || "Button",
       iconColor: options.iconColor || "text-ctp-text",
-      // onClick: options.onClick || function() { },
       href: options.href || "#",
       container: options.container || document.body,
       className: options.className || "",
       icon: options.icon || "",
     };
     this.settings = readSettings();
-
-    // Render button to the specified container
-    this.render();
   }
 
   createButtonElement() {
@@ -67,6 +56,10 @@ export class LinkButton {
     this.applySettings(button)
     this.config.container.appendChild(button);
   }
+
+}
+
+export class LinkButton extends BaseButton {
 }
 
 export class Tab {
