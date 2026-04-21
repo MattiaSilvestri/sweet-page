@@ -1,25 +1,10 @@
-import { LinkButton, Tab } from "../components/buttons.js";
+import { GroupButton, LinkButton, Tab } from "../components/buttons.js";
 import config from '../../config.json' assert { type: 'json' };
 import { SettingsModal } from "../components/modal.js";
 import { saveSettings } from "./settings.js";
 import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
 import { Poetry } from "../components/poetry.js";
-
-function addLinkButtons(tab) {
-  for (const [key, value] of Object.entries(tab.links)) {
-    new LinkButton({
-      text: key,
-      iconColor: value["icon-color"],
-      icon: value.icon,
-      container: document.getElementById(tab.config.name), // Create inside tab
-      href: value.link
-      // onClick: () => {
-      //   window.open(value.link);
-      // },
-    })
-  }
-}
 
 export function addClock() {
   const clock = new Clock();
@@ -51,15 +36,45 @@ export function addSearchBar() {
 }
 
 export function addTab() {
+  // Add tabs.
+  // This is the entry point for the rest of the elements, each tab adds the
+  // group buttons, each group adds the link buttons.
   for (const [key, value] of Object.entries(config)) {
     // Create new tab first
     const tab = new Tab({
-      text: key,
-      links: value.links
+      name: key,
+      content: value
     })
 
     // Add buttons for this tab
-    addLinkButtons(tab);
+    addGroupButtons(tab.config);
+  }
+}
+
+function addGroupButtons(tab) {
+  // Takes a tab.config object and add a the button groups to it
+  for (const [key, value] of Object.entries(tab.content)) {
+    const group = new GroupButton({
+      name: key,
+      tab: tab,
+      content: value,
+    })
+    addLinkButtons(group.config);
+  }
+}
+
+function addLinkButtons(group) {
+  for (const [key, value] of Object.entries(group.content)) {
+    new LinkButton({
+      text: key,
+      iconColor: value["icon-color"],
+      icon: value.icon,
+      container: document.getElementById(group.name), // Create inside group
+      href: value.link
+      // onClick: () => {
+      //   window.open(value.link);
+      // },
+    })
   }
 }
 

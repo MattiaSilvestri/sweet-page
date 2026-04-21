@@ -1,6 +1,6 @@
 {
   "Bookmarks": {
-    "links": {
+    "Quick acccess": {
       "Google": {
         "link": "https://www.google.com",
         "icon": "streamline-ultimate-color:google-logo",
@@ -10,7 +10,9 @@
         "link": "https://www.youtube.com/",
         "icon": "tabler:brand-youtube-filled",
         "icon-color": "text-ctp-red"
-      },
+      }
+    },
+    "Random": {
       "LOL": {
         "link": "https://www.youtube.com/",
         "icon": "tabler:brand-youtube-filled",
@@ -29,7 +31,7 @@
     }
   },
   "Lol": {
-    "links": {
+    "Fun": {
       "Goku": {
         "link": "https://www.google.com",
         "icon-color": ""

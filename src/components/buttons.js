@@ -1,6 +1,6 @@
 import { readSettings } from "../common/settings";
 
-class BaseButton {
+export class LinkButton {
   constructor(options) {
     this.config = {
       text: options.text || "Button",
@@ -11,6 +11,7 @@ class BaseButton {
       icon: options.icon || "",
     };
     this.settings = readSettings();
+    this.render();
   }
 
   createButtonElement() {
@@ -59,16 +60,12 @@ class BaseButton {
 
 }
 
-export class LinkButton extends BaseButton {
-}
-
 export class Tab {
   constructor(options) {
     this.config = {
-      name: options.text || "Tab",
-      icon: options.icon || "",
+      name: options.name || "Tab",
+      content: options.content || {},
     };
-    this.links = options.links || {};
 
     this.render();
   }
@@ -84,12 +81,12 @@ export class Tab {
     // Add tab panel holding the link buttons
     const tabContent = document.createElement("div");
     tabContent.id = this.config.name;
-    tabContent.classList.add("tab-content", "h-full");
+    tabContent.classList.add("tab-content", "h-full", ...("links flex flex-wrap gap-3 content-start".split(" ")));
 
-    const tabContentButton = document.createElement("div");
-    tabContentButton.id = "links";
-    tabContentButton.classList.add(...("links flex flex-wrap gap-3 content-start".split(" ")));
-    tabContent.appendChild(tabContentButton);
+    // const tabContentButton = document.createElement("div");
+    // tabContentButton.id = "links";
+    // tabContentButton.classList.add(...("links flex flex-wrap gap-3 content-start".split(" ")));
+    // tabContent.appendChild(tabContentButton);
 
     return { button: button, tabContent: tabContent };
   }
@@ -103,3 +100,33 @@ export class Tab {
     document.querySelector(".tab-board").appendChild(tabContent);
   }
 }
+
+export class GroupButton {
+  constructor(options) {
+    if (!options.tab) throw new TypeError("Needs to specify a tab");
+
+    this.config = {
+      buttons: options.buttons || [],
+      name: options.name || "Group",
+      tab: options.tab,
+      content: options.content || {},
+    };
+    this.render();
+  }
+
+  createGroupButtonElement() {
+    const buttonGroup = document.createElement("div");
+    buttonGroup.classList.add(...("flex flex-wrap gap-3".split(" ")));
+    buttonGroup.id = this.config.name;
+    return buttonGroup;
+  }
+
+  render() {
+    // Render elements in the correct place
+    const tabEl = document.getElementById(this.config.tab.name);
+    const buttonGroup = this.createGroupButtonElement();
+    tabEl.appendChild(buttonGroup);
+  }
+}
+
+
