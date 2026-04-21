@@ -81,7 +81,7 @@ export class Tab {
     // Add tab panel holding the link buttons
     const tabContent = document.createElement("div");
     tabContent.id = this.config.name;
-    tabContent.classList.add("tab-content", "h-full", ...("links flex flex-wrap gap-3 content-start".split(" ")));
+    tabContent.classList.add("tab-content", "h-full", "grid", "grid-cols-2", "sm:grid-cols-3", "lg:grid-cols-4", "gap-3");
 
     // const tabContentButton = document.createElement("div");
     // tabContentButton.id = "links";
@@ -116,7 +116,7 @@ export class GroupButton {
 
   createGroupButtonElement() {
     const buttonGroup = document.createElement("div");
-    buttonGroup.classList.add(...("flex flex-wrap gap-3".split(" ")));
+    buttonGroup.classList.add("button-group", "flex", "flex-col", "justify-start");
     buttonGroup.id = this.config.name;
     return buttonGroup;
   }

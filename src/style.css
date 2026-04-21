@@ -199,10 +199,6 @@ main>div {
   border-radius: 0 6px 6px 0 !important;
   /* padding: 18px !important; */
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 2px;
   align-content: flex-start;
 }
 
