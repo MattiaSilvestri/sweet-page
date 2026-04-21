@@ -18,7 +18,10 @@ export class LinkButton {
     const button = document.createElement("a");
 
     // Add text
-    button.textContent = this.config.text;
+    const textSpan = document.createElement("span");
+    textSpan.textContent = this.config.text;
+    textSpan.classList.add("truncate", "min-w-0");
+    button.appendChild(textSpan);
 
     // Add classes
     button.classList.add(...("base-button cursor-pointer m-1".split(" ")),);
@@ -75,7 +78,7 @@ export class Tab {
     const button = document.createElement("button");
     button.textContent = this.config.name;
     button.dataset.name = this.config.name;
-    button.classList.add("tablinks", "cursor-pointer", "w-full");
+    button.classList.add("tablinks", "truncate", "cursor-pointer", "w-full");
     // button.classList.add(this.config.icon);
 
     // Add tab panel holding the link buttons
@@ -121,7 +124,7 @@ export class GroupButton {
     buttonGroup.id = this.config.name;
 
     const label = document.createElement("span");
-    label.classList.add("button-group-label", "align-items-center");
+    label.classList.add("button-group-label", "align-items-center", "truncate");
     label.textContent = this.config.name;
     buttonGroup.appendChild(label);
 
