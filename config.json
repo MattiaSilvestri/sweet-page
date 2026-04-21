@@ -8,7 +8,12 @@
       },
       "YouTube": {
         "link": "https://www.youtube.com/",
-        "icon": "tabler:brand-youtube-filled",
+        "icon": "logos:youtube-icon",
+        "icon-color": "text-ctp-red"
+      },
+      "Keep": {
+        "link": "https://keep.google.com/u/0/#home",
+        "icon": "logos:google-keep",
         "icon-color": "text-ctp-red"
       }
     },
