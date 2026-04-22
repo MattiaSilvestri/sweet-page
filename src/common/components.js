@@ -5,6 +5,12 @@ import { saveSettings } from "./settings.js";
 import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
 import { Poetry } from "../components/poetry.js";
+import { Banner } from "../components/banner.js";
+
+export function addBanner() {
+  const banner = new Banner();
+  banner.render();
+}
 
 export function addClock() {
   const clock = new Clock();

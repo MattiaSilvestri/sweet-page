@@ -1,9 +1,11 @@
 import './style.css'
 import { loadTab, openTab } from "./common/utils";
-import { addClock, addModal, addPoetry, addSearchBar, addTab } from "./common/components";
+import { addBanner, addClock, addModal, addPoetry, addSearchBar, addTab } from "./common/components";
 import "iconify-icon";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Add banner
+  addBanner();
   // Add clock
   addClock();
   // Add poetry

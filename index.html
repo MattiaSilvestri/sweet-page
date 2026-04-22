@@ -15,7 +15,7 @@
 
     <div id="header" class="flex-1 flex items-center w-full">
       <div class="w-[65%] max-w-7xl mx-auto flex items-start gap-10">
-        <img id="banner" src="banner.gif" alt="Banner" class="max-h-64 w-auto object-contain" />
+        <img id="banner" />
         <div class="flex flex-col gap-4">
           <div id="clock-display" class="select-none">
             <div id="clock-time"></div>
@@ -95,6 +95,10 @@
 
         <section class="flex flex-col gap-4">
           <h2 class="text-[11px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">appearance</h2>
+          <div class="flex items-center justify-between text-sm text-ctp-subtext">
+            <span id="banner-select" class="label">Set banner</span>
+            <div id="img-picker"></div>
+          </div>
           <div class="flex items-center justify-between text-sm text-ctp-subtext">
             <label for="accent-color">Accent color</label>
             <select id="accent-color" name="accent-color"

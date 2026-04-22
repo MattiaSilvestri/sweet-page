@@ -37,6 +37,8 @@ export class LinkButton {
     if (this.config.icon) {
       const iconElement = document.createElement("iconify-icon");
       iconElement.icon = this.config.icon;
+      iconElement.width = "16";
+      iconElement.height = "16";
       iconElement.classList.add(this.config.iconColor);
       button.prepend(iconElement);
     }

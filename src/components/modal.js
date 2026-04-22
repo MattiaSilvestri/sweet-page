@@ -43,3 +43,14 @@ export class SettingsModal {
     this.populateGeneral();
   }
 }
+
+export class ImagePicker {
+  constructor(options) {
+    this.images = options.images;
+    this.settings = readSettings();
+  }
+
+  render() {
+    const imgPicker = document.getElementById("img-picker");
+  }
+}

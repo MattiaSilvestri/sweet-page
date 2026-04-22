@@ -2,6 +2,7 @@ export const DEFAULT_SETTINGS = {
   "search-engine": "google",
   "open-in-new-tab": false,
   "show-seconds": false,
+  "banner": "0_banner.gif"
 }
 
 export const DEFAULT_CONFIG = {
