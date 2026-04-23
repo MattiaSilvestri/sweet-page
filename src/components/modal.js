@@ -55,13 +55,24 @@ export class ImagePicker {
   constructor(options) {
     this.images = options.images;
     this.banners = DEFAULT_BANNERS;
+    this.settings = readSettings();
   }
 
   render() {
-    const images = this.banners.map(s => `banners/${s}`);
     const wrapper = document.querySelector(".swiper-wrapper");
-    images.forEach(src => {
-      wrapper.innerHTML += `<div class="swiper-slide"><img src="${src}"></div>`;
+    this.banners.forEach(src => {
+      src = `banners/${src}`
+      const slide = document.createElement("div");
+      slide.classList.add("swiper-slide");
+      const img = document.createElement("img");
+      img.src = src;
+      if (this.settings.banner === src) img.classList.add("selected");
+      img.addEventListener("click", (e) => {
+        document.querySelectorAll(".selected").forEach(img => img.classList.remove("selected"));
+        e.target.classList.add("selected");
+      });
+      slide.appendChild(img);
+      wrapper.appendChild(slide);
     });
   }
 
