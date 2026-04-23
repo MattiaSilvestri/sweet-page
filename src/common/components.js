@@ -1,16 +1,11 @@
 import { GroupButton, LinkButton, Tab } from "../components/buttons.js";
 import config from '../../config.json' assert { type: 'json' };
-import { SettingsModal } from "../components/modal.js";
+import { ImagePicker, SettingsModal } from "../components/modal.js";
 import { saveSettings } from "./settings.js";
 import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
 import { Poetry } from "../components/poetry.js";
 import { Banner } from "../components/banner.js";
-
-export function addBanner() {
-  const banner = new Banner();
-  banner.render();
-}
 
 export function addClock() {
   const clock = new Clock();
@@ -88,10 +83,17 @@ export function addModal() {
   // Read settings from config and create modal
   // const settings = Object.fromEntries(Object.entries(config.settings))
   new SettingsModal()
+  // Add image picker
+  const bannerPicker = new ImagePicker({ images: config.banners });
+  bannerPicker.render();
   // Append settings modal event handlers //
   // Open modal
   const modal = document.getElementById("settings-modal");
-  document.getElementById("settings").addEventListener("click", () => modal.classList.add("open"));
+  let swiperReady = false;
+  document.getElementById("settings").addEventListener("click", () => {
+    modal.classList.add("open");
+    if (!swiperReady) { bannerPicker.initSwiper(); swiperReady = true; }
+  });
   // Close modal
   modal.querySelector("#settings-close").addEventListener("click", () => modal.classList.remove("open"));
   modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });

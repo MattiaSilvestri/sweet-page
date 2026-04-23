@@ -7,7 +7,7 @@ export class Banner {
 
   render() {
     const banner = document.querySelector("img#banner");
-    banner.src = this.settings.banner;
+    banner.src = `banners/${this.settings.banner}`;
     banner.alt = "Banner";
     banner.classList.add("max-h-64", "w-auto", "object-contain");
   }

@@ -2,8 +2,10 @@ export const DEFAULT_SETTINGS = {
   "search-engine": "google",
   "open-in-new-tab": false,
   "show-seconds": false,
-  "banner": "0_banner.gif"
+  "banner": "0_banner.gif",
 }
+
+export const DEFAULT_BANNERS = ["0_banner.gif", "1_banner.gif", "2_banner.jpg", "3_banner.jpg", "4_banner.jpg"]
 
 export const DEFAULT_CONFIG = {
   "bookmarks": {

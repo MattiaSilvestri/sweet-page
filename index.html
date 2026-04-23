@@ -64,7 +64,7 @@
   <!-- Settings modal -->
   <div id="settings-modal" class="modal-backdrop fixed inset-0 bg-black/50 z-[100] items-center justify-center">
     <form id="settings-form"
-      class="bg-ctp-base border border-ctp-surface0 rounded-md w-[580px] shadow-[0_8px_48px_rgba(0,0,0,0.6)]">
+      class="bg-ctp-base border border-ctp-surface0 rounded-md w-[800px] shadow-[0_8px_48px_rgba(0,0,0,0.6)]">
 
       <div class="flex items-center justify-between px-6 py-5 border-b border-ctp-surface0">
         <span class="text-sm font-medium tracking-[0.14em] uppercase text-ctp-subtext">settings</span>
@@ -95,21 +95,26 @@
 
         <section class="flex flex-col gap-4">
           <h2 class="text-[11px] font-semibold tracking-[0.18em] uppercase text-ctp-surface2 mb-0.5">appearance</h2>
-          <div class="flex items-center justify-between text-sm text-ctp-subtext">
-            <span id="banner-select" class="label">Set banner</span>
-            <div id="img-picker"></div>
+          <div class="text-sm text-ctp-subtext">
+            <div id="banner-select" class="label mb-5">Change banner</div>
+            <div class="swiper" id="img-picker">
+              <div class="swiper-wrapper"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
-          <div class="flex items-center justify-between text-sm text-ctp-subtext">
-            <label for="accent-color">Accent color</label>
-            <select id="accent-color" name="accent-color"
-              class="appearance-none bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-sm rounded px-3 py-1.5 outline-none cursor-pointer">
-              <option value="mauve">mauve</option>
-              <option value="blue">blue</option>
-              <option value="teal">teal</option>
-              <option value="green">green</option>
-              <option value="peach">peach</option>
-            </select>
-          </div>
+          <!-- <div class="flex items-center justify-between text-sm text-ctp-subtext"> -->
+          <!--   <label for="accent-color">Accent color</label> -->
+          <!--   <select id="accent-color" name="accent-color" -->
+          <!--     class="appearance-none bg-ctp-mantle border border-ctp-surface0 text-ctp-text text-sm rounded px-3 py-1.5 outline-none cursor-pointer"> -->
+          <!--     <option value="mauve">mauve</option> -->
+          <!--     <option value="blue">blue</option> -->
+          <!--     <option value="teal">teal</option> -->
+          <!--     <option value="green">green</option> -->
+          <!--     <option value="peach">peach</option> -->
+          <!--   </select> -->
+          <!-- </div> -->
         </section>
 
       </div>

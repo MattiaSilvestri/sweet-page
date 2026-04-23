@@ -1,22 +1,18 @@
 import './style.css'
 import { loadTab, openTab } from "./common/utils";
-import { addBanner, addClock, addModal, addPoetry, addSearchBar, addTab } from "./common/components";
+import { addClock, addModal, addPoetry, addSearchBar, addTab } from "./common/components";
 import "iconify-icon";
+import { Banner } from './components/banner';
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add banner
-  addBanner();
-  // Add clock
+  const banner = new Banner();
+  banner.render();
   addClock();
-  // Add poetry
   addPoetry(7);
-  // Add search bar settings
-  addSearchBar()
-  // Add settings modal
+  addSearchBar();
   addModal();
-  // Add link buttons
   addTab();
-  // Attach event listeners for tab buttons
   const buttons = document.querySelectorAll(".tablinks");
   buttons.forEach(btn => {
     btn.addEventListener("click", evt => {

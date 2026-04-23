@@ -1,4 +1,11 @@
+import Swiper from "swiper";
+import { Navigation, EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 import { readSettings } from "../common/settings";
+import { DEFAULT_BANNERS } from "../common/defaults";
 
 export class SettingsModal {
   constructor() {
@@ -47,10 +54,39 @@ export class SettingsModal {
 export class ImagePicker {
   constructor(options) {
     this.images = options.images;
-    this.settings = readSettings();
+    this.banners = DEFAULT_BANNERS;
   }
 
   render() {
-    const imgPicker = document.getElementById("img-picker");
+    const images = this.banners.map(s => `banners/${s}`);
+    const wrapper = document.querySelector(".swiper-wrapper");
+    images.forEach(src => {
+      wrapper.innerHTML += `<div class="swiper-slide"><img src="${src}"></div>`;
+    });
+  }
+
+  initSwiper() {
+    return new Swiper('.swiper', {
+      modules: [Navigation, EffectCoverflow, Pagination],
+      effect: "coverflow",
+      grabCursor: false,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
   }
 }
