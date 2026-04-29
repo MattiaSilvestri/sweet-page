@@ -9,6 +9,11 @@ export class Banner {
     const banner = document.querySelector("img#banner");
     banner.src = `banners/${this.settings.banner}`;
     banner.alt = "Banner";
+
+    // Reload settings reactively
+    window.addEventListener("settings-changed", (e) => {
+      banner.src = `banners/${e.detail["banner"]}`;
+    });
     banner.classList.add("max-h-64", "w-auto", "object-contain");
   }
 }

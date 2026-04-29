@@ -66,10 +66,11 @@ export class ImagePicker {
       slide.classList.add("swiper-slide");
       const img = document.createElement("img");
       img.src = src;
-      if (this.settings.banner === src) img.classList.add("selected");
+      img.classList.add("cursor-pointer");
+      if (this.settings.banner === src) img.classList.add("selected-banner");
       img.addEventListener("click", (e) => {
-        document.querySelectorAll(".selected").forEach(img => img.classList.remove("selected"));
-        e.target.classList.add("selected");
+        document.querySelectorAll(".selected-banner").forEach(img => img.classList.remove("selected-banner"));
+        e.target.classList.add("selected-banner");
       });
       slide.appendChild(img);
       wrapper.appendChild(slide);

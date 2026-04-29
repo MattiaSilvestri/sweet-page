@@ -92,7 +92,11 @@ export function addModal() {
   let swiperReady = false;
   document.getElementById("settings").addEventListener("click", () => {
     modal.classList.add("open");
-    if (!swiperReady) { bannerPicker.initSwiper(); swiperReady = true; }
+    if (!swiperReady) {
+      swiper = bannerPicker.initSwiper();
+      swiper.on("click", (e) => { swiper.slideTo(swiper.clickedIndex) });
+      swiperReady = true;
+    }
   });
   // Close modal
   modal.querySelector("#settings-close").addEventListener("click", () => modal.classList.remove("open"));

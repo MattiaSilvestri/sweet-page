@@ -363,6 +363,11 @@ main>div {
   display: block;
 }
 
+#img-picker .swiper-slide img.selected-banner {
+  border: 2px solid var(--color-ctp-mauve);
+  border-radius: 6px;
+}
+
 /* ── Banner ──────────────────────────────────── */
 #banner {
   opacity: 0.8;

@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add banner
   const banner = new Banner();
   banner.render();
+
   addClock();
   addPoetry(7);
   addSearchBar();

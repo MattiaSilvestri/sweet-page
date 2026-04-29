@@ -26,7 +26,14 @@ export function saveSettings(modal) {
   const form = document.querySelector("#settings-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    // Read data from form
     const data = parseFormData(form);
+
+    // Read data from banner selection
+    const bannerSelected = document.querySelector(".selected-banner");
+    data.banner = bannerSelected.src.split("/").at(-1);
+
     localStorage.setItem("settings", JSON.stringify(data));
     window.dispatchEvent(new CustomEvent("settings-changed", { detail: data }));
     modal.classList.remove("open");
