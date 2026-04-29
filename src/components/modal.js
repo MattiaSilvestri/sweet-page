@@ -60,14 +60,16 @@ export class ImagePicker {
 
   render() {
     const wrapper = document.querySelector(".swiper-wrapper");
-    this.banners.forEach(src => {
+    this.banners.forEach((src, index) => {
+      const originalSrc = src; // Store original filename
       src = `banners/${src}`
       const slide = document.createElement("div");
       slide.classList.add("swiper-slide");
+      if (this.settings.banner === originalSrc) slide.classList.add("selected-banner");
+      slide.dataset.index = index;
       const img = document.createElement("img");
       img.src = src;
       img.classList.add("cursor-pointer");
-      if (this.settings.banner === src) img.classList.add("selected-banner");
       // img.addEventListener("click", (e) => {
       //   document.querySelectorAll(".selected-banner").forEach(img => img.classList.remove("selected-banner"));
       //   e.target.classList.add("selected-banner");

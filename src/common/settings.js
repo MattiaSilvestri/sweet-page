@@ -31,8 +31,9 @@ export function saveSettings(modal) {
     const data = parseFormData(form);
 
     // Read data from banner selection
-    const bannerSelected = document.querySelector(".selected-banner");
+    const bannerSelected = document.querySelector("div.selected-banner");
     data.banner = bannerSelected.src.split("/").at(-1);
+    data.bannerIdx = Number(bannerSelected.dataset.index);
 
     localStorage.setItem("settings", JSON.stringify(data));
     window.dispatchEvent(new CustomEvent("settings-changed", { detail: data }));
