@@ -68,10 +68,10 @@ export class ImagePicker {
       img.src = src;
       img.classList.add("cursor-pointer");
       if (this.settings.banner === src) img.classList.add("selected-banner");
-      img.addEventListener("click", (e) => {
-        document.querySelectorAll(".selected-banner").forEach(img => img.classList.remove("selected-banner"));
-        e.target.classList.add("selected-banner");
-      });
+      // img.addEventListener("click", (e) => {
+      //   document.querySelectorAll(".selected-banner").forEach(img => img.classList.remove("selected-banner"));
+      //   e.target.classList.add("selected-banner");
+      // });
       slide.appendChild(img);
       wrapper.appendChild(slide);
     });

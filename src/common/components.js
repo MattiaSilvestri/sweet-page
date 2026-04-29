@@ -93,8 +93,12 @@ export function addModal() {
   document.getElementById("settings").addEventListener("click", () => {
     modal.classList.add("open");
     if (!swiperReady) {
-      swiper = bannerPicker.initSwiper();
-      swiper.on("click", (e) => { swiper.slideTo(swiper.clickedIndex) });
+      const swiper = bannerPicker.initSwiper();
+      swiper.on("slideChangeTransitionEnd", (e) => {
+        const img = swiper.slides[swiper.activeIndex].querySelector('img');
+        document.querySelectorAll(".selected-banner").forEach(img => img.classList.remove("selected-banner"));
+        img.classList.add("selected-banner");
+      })
       swiperReady = true;
     }
   });
