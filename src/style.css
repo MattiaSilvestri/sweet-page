@@ -363,7 +363,7 @@ main>div {
   display: block;
 }
 
-#img-picker .swiper-slide img.selected-banner {
+#img-picker .swiper-slide.swiper-slide-fully-visible {
   border: 2px solid var(--color-ctp-mauve);
   border-radius: 6px;
 }

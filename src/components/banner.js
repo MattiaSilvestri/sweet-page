@@ -14,6 +14,6 @@ export class Banner {
     window.addEventListener("settings-changed", (e) => {
       banner.src = `banners/${e.detail["banner"]}`;
     });
-    banner.classList.add("max-h-64", "w-auto", "object-contain");
+    banner.classList.add("w-96", "h-60", "object-cover");
   }
 }

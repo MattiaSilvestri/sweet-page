@@ -22,7 +22,7 @@ export async function addPoetry(linecount) {
 
   const dailyPoetry = JSON.parse(localStorage.getItem("poetry"));
   const [datePart, timePart] = dailyPoetry.timestamp.split(', ');
-  const [day, month, year] = datePart.split('/');
+  const [month, day, year] = datePart.split('/');
   const poetryDate = new Date(`${year}-${month}-${day}T${timePart}`);
   const isAnotherDay = new Date().toDateString() !== poetryDate.toDateString();
   if (isAnotherDay) {
@@ -96,11 +96,11 @@ export function addModal() {
     modal.classList.add("open");
     if (!swiperReady) {
       const swiper = bannerPicker.initSwiper();
-      swiper.on("slideChangeTransitionStart", (e) => {
-        const img = swiper.slides[swiper.activeIndex].querySelector('img');
-        document.querySelectorAll(".selected-banner").forEach(img => img.classList.remove("selected-banner"));
-        img.classList.add("selected-banner");
-      })
+      // swiper.on("slideChangeTransitionStart", (e) => {
+      //   const slide = swiper.slides[swiper.activeIndex]
+      //   document.querySelectorAll(".selected-banner").forEach(slide => slide.classList.remove("selected-banner"));
+      //   slide.classList.add("selected-banner");
+      // })
       swiperReady = true;
     }
   });

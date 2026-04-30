@@ -31,7 +31,7 @@ export function saveSettings(modal) {
     const data = parseFormData(form);
 
     // Read data from banner selection
-    const bannerSelected = document.querySelector("div.selected-banner");
+    const bannerSelected = document.querySelector("div.swiper-slide.swiper-slide-fully-visible img");
     data.banner = bannerSelected.src.split("/").at(-1);
     data.bannerIdx = Number(bannerSelected.dataset.index);
 
