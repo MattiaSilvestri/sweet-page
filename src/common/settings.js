@@ -31,8 +31,9 @@ export function saveSettings(modal) {
     const data = parseFormData(form);
 
     // Read data from banner selection
-    const bannerSelected = document.querySelector("div.swiper-slide.swiper-slide-fully-visible img");
-    data.banner = bannerSelected.src.split("/").at(-1);
+    const bannerSelected = document.querySelector("div.swiper-slide.swiper-slide-fully-visible");
+    const imgSelected = document.querySelector("div.swiper-slide.swiper-slide-fully-visible img");
+    data.banner = imgSelected.src.split("/").at(-1);
     data.bannerIdx = Number(bannerSelected.dataset.index);
 
     localStorage.setItem("settings", JSON.stringify(data));

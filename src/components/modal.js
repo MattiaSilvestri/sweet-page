@@ -65,23 +65,21 @@ export class ImagePicker {
       src = `banners/${src}`
       const slide = document.createElement("div");
       slide.classList.add("swiper-slide");
-      if (this.settings.banner === originalSrc) slide.classList.add("selected-banner");
+      // if (this.settings.banner === originalSrc) slide.classList.add("selected-banner");
       slide.dataset.index = index;
       const img = document.createElement("img");
       img.src = src;
       img.classList.add("cursor-pointer");
-      // img.addEventListener("click", (e) => {
-      //   document.querySelectorAll(".selected-banner").forEach(img => img.classList.remove("selected-banner"));
-      //   e.target.classList.add("selected-banner");
-      // });
       slide.appendChild(img);
       wrapper.appendChild(slide);
     });
   }
 
   initSwiper() {
+    const initialSlide = Number(this.settings.bannerIdx) ? Number(this.settings.bannerIdx) : 0;
     return new Swiper('.swiper', {
       modules: [Navigation, EffectCoverflow, Pagination],
+      initialSlide: initialSlide,
       effect: "coverflow",
       grabCursor: false,
       centeredSlides: true,

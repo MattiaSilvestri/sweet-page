@@ -95,12 +95,7 @@ export function addModal() {
   document.getElementById("settings").addEventListener("click", () => {
     modal.classList.add("open");
     if (!swiperReady) {
-      const swiper = bannerPicker.initSwiper();
-      // swiper.on("slideChangeTransitionStart", (e) => {
-      //   const slide = swiper.slides[swiper.activeIndex]
-      //   document.querySelectorAll(".selected-banner").forEach(slide => slide.classList.remove("selected-banner"));
-      //   slide.classList.add("selected-banner");
-      // })
+      bannerPicker.initSwiper();
       swiperReady = true;
     }
   });
