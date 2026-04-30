@@ -8,5 +8,6 @@ Simple static startpage made with HTML + SCSS.
 - [x] Add daily poetry update
 - [x] Add subcategories inside the same tab
 - [x] Select banners from settings
+- [ ] Add calendar and google events
 - [ ] Add export and import settings
 - [ ] Add button to easily add new bookmarks
