@@ -3,7 +3,6 @@ import { loadTab, openTab } from "./common/utils";
 import { addClock, addModal, addPoetry, addSearchBar, addTab } from "./common/components";
 import "iconify-icon";
 import { Banner } from './components/banner';
-import { Calendar } from './components/calendar';
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add banner
@@ -12,10 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addClock();
   addPoetry(7);
-
-  // Add calendar
-  const calendar = new Calendar();
-  calendar.render();
 
   addSearchBar();
   addModal();

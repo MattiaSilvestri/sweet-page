@@ -373,9 +373,3 @@ main>div {
   opacity: 0.8;
   border-radius: 12px;
 }
-
-/* ── Calendar ───────────────────────────────────── */
-#calendar {
-  transform: scale(0.8);
-  transform-origin: top left;
-}
