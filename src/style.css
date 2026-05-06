@@ -373,3 +373,17 @@ main>div {
   opacity: 0.8;
   border-radius: 12px;
 }
+
+/* ── Header layout centering ─────────────────── */
+#header-content {
+  align-items: center;
+}
+
+#clock-display {
+  text-align: left;
+}
+
+#poetry {
+  max-width: 384px; /* Match banner width (w-96) */
+  text-align: left;
+}
