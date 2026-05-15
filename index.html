@@ -56,7 +56,7 @@
 
     <!-- Add-entry and Settings -->
     <div class="absolute bottom-4 right-4 z-10 flex gap-3">
-      <button id="add-entry" class="settings-button flex items-center"><iconify-icon icon="tabler:bookmark-filled"
+      <button id="add-bookmark" class="settings-button flex items-center"><iconify-icon icon="tabler:bookmark-filled"
           class="mr-2"></iconify-icon>Add bookmarks</button>
       <button id="settings" class="settings-button flex items-center"><iconify-icon icon="material-symbols:settings"
           class="mr-2"></iconify-icon>Settings</button>
@@ -128,6 +128,13 @@
       </div>
 
     </form>
+  </div>
+
+  <!-- Add-bookmark modal -->
+  <div id="jsoneditor-modal" class="modal-backdrop fixed inset-0 bg-black/50 z-[100] items-center justify-center">
+    <div id="jsoneditor-content"
+      class="bg-ctp-base border border-ctp-surface0 rounded-md w-[800px] shadow-[0_8px_48px_rgba(0,0,0,0.6)]">
+    </div>
   </div>
 </body>
 
