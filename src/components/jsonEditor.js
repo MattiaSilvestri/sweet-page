@@ -4,35 +4,27 @@ class JsonEditor {
   constructor(options) {
     this.settings = readSettings();
     this.config = readConfig();
-    this.editor = createJSONEditor({
-      target: document.getElementById('jsoneditor-modal')
-    })
+    this.target = options.target;
   }
 
   render() {
-    // set json
-    document.getElementById('setContent').onclick = function() {
-      const content = {
-        text: undefined, // used in text mode
-        json: {
-          array: [1, 2, 3],
-          boolean: true,
-          color: '#82b92c',
-          null: null,
-          number: 123,
-          object: { a: 'b', c: 'd' },
-          time: 1575599819000,
-          string: 'Hello World'
+    let content = {
+      text: undefined,
+      json: this.config
+    }
+    this.editor = createJSONEditor(
+      {
+        target: document.getElementById(this.target),
+        props: {
+          content,
+          onChange: (updatedContent, previousContent, { contentErrors, patchResult }) => {
+            // content is an object { json: unknown } | { text: string }
+            console.log('onChange', { updatedContent, previousContent, contentErrors, patchResult })
+            content = updatedContent
+          }
         }
       }
-
-      editor.set(content)
-    }
-
-    // get json
-    document.getElementById('getContent').onclick = function() {
-      const content = editor.get()
-      alert(JSON.stringify(content, null, 2))
-    }
+    )
   }
+
 }
