@@ -1,6 +1,6 @@
 import { createJSONEditor } from "vanilla-jsoneditor";
 
-class JsonEditor {
+export class JsonEditor {
   constructor(options) {
     this.settings = readSettings();
     this.config = readConfig();

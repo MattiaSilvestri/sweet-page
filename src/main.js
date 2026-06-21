@@ -3,6 +3,7 @@ import { loadTab, openTab } from "./common/utils";
 import { addClock, addModal, addPoetry, addSearchBar, addTab } from "./common/components";
 import "iconify-icon";
 import { Banner } from './components/banner';
+import { JsonEditor } from './components/jsonEditor';
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add banner
@@ -22,6 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
       openTab(name, { evt: evt });
     });
   });
+
+  // Add Json editor
+  const jsonEditor = new JsonEditor({ target: "jsoneditor-modal" });
+  jsonEditor.render();
+
   // Load last tab
   loadTab();
 })
