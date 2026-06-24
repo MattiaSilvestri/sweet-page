@@ -1,4 +1,5 @@
 import { createJSONEditor } from "vanilla-jsoneditor";
+import { readConfig, readSettings } from "../common/settings";
 
 export class JsonEditor {
   constructor(options) {
