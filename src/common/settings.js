@@ -1,4 +1,5 @@
 import { DEFAULT_CONFIG, DEFAULT_SETTINGS } from "./defaults";
+import customConfig from '../../config.json' assert { type: 'json' };
 
 function parseFormData(form) {
   const raw = Object.fromEntries(new FormData(form));
@@ -43,7 +44,6 @@ export function saveSettings(modal) {
 }
 
 export function readConfig() {
-  const storedConfig = JSON.parse(localStorage.getItem("config"));
-  return storedConfig ? storedConfig : DEFAULT_CONFIG;
+  return customConfig ? customConfig : DEFAULT_CONFIG;
 }
 
