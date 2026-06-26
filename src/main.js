@@ -6,6 +6,9 @@ import { Banner } from './components/banner';
 import { JsonEditor } from './components/jsonEditor';
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Load config into localstorage
+  loadConfig();
+
   // Add banner
   const banner = new Banner();
   banner.render();
@@ -36,6 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
   jsonEditorModal.addEventListener("click", (e) => {
     if (e.target === jsonEditorModal) jsonEditorModal.classList.remove("open");
   });
+  jsonEditorModal.addEventListener("click", (e) => {
+    if (e.target === jsonEditorModal.querySelector("#json-save")) jsonEditor.saveConfig();
+  });
+
 
   // Load last tab
   loadTab();

@@ -1,5 +1,6 @@
 import { DEFAULT_CONFIG, DEFAULT_SETTINGS } from "./defaults";
 import customConfig from '../../config.json' assert { type: 'json' };
+import { writeFile } from 'fs/promises';
 
 function parseFormData(form) {
   const raw = Object.fromEntries(new FormData(form));
@@ -43,7 +44,22 @@ export function saveSettings(modal) {
   });
 }
 
-export function readConfig() {
-  return customConfig ? customConfig : DEFAULT_CONFIG;
+export function loadConfig() {
+  if (JSON.parse(localStorage.getItem("config"))) {
+    return localConfig
+  }
+  if (customConfig) {
+    localStorage.setItem('config', JSON.stringify(customConfig));
+    return customConfig
+  }
+  localStorage.setItem('config', JSON.stringify(DEFAULT_CONFIG));
+  return DEFAULT_CONFIG
 }
 
+export function readConfig() {
+  return JSON.parse(localStorage.getItem("config"));
+}
+
+export async function writeConfig(data) {
+  await writeFile("../../config.json", JSON.stringify(data, null, 2));
+}

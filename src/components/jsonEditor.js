@@ -1,5 +1,5 @@
 import { createJSONEditor } from "vanilla-jsoneditor";
-import { readConfig, readSettings } from "../common/settings";
+import { readConfig, readSettings, writeConfig } from "../common/settings";
 
 export class JsonEditor {
   constructor(options) {
@@ -21,11 +21,15 @@ export class JsonEditor {
           onChange: (updatedContent, previousContent, { contentErrors, patchResult }) => {
             // content is an object { json: unknown } | { text: string }
             console.log('onChange', { updatedContent, previousContent, contentErrors, patchResult })
-            content = updatedContent
+            this.config = updatedContent
           }
         }
       }
     )
+  }
+
+  saveConfig() {
+    writeConfig(this.config);
   }
 
 }
