@@ -4,11 +4,14 @@ import { addClock, addModal, addPoetry, addSearchBar, addTab } from "./common/co
 import "iconify-icon";
 import { Banner } from './components/banner';
 import { JsonEditor } from './components/jsonEditor';
+import { DEFAULT_CONFIG } from "./common/defaults";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Load config into localstorage
-  loadConfig();
 
+  // Load default config if needed
+  if (!JSON.parse(localStorage.getItem("config"))) {
+    localStorage.setItem('config', JSON.stringify(DEFAULT_CONFIG));
+  }
   // Add banner
   const banner = new Banner();
   banner.render();
