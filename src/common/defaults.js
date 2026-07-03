@@ -15,31 +15,29 @@ export const DEFAULT_BANNERS = [
 ]
 
 export const DEFAULT_CONFIG = {
-  "bookmarks": {
-    "Bookmarks": {
-      "links": {
-        "Google": {
-          "link": "https://www.google.com",
-          "icon": "streamline-ultimate-color:google-logo",
-          "icon-color": ""
-        },
-        "YouTube": {
-          "link": "https://www.youtube.com/",
-          "icon": "tabler:brand-youtube-filled",
-          "icon-color": "text-ctp-red"
-        }
+  "Bookmarks": {
+    "links": {
+      "Google": {
+        "link": "https://www.google.com",
+        "icon": "streamline-ultimate-color:google-logo",
+        "icon-color": ""
+      },
+      "YouTube": {
+        "link": "https://www.youtube.com/",
+        "icon": "tabler:brand-youtube-filled",
+        "icon-color": "text-ctp-red"
       }
-    },
-    "Lol": {
-      "links": {
-        "Goku": {
-          "link": "https://www.google.com",
-          "icon-color": ""
-        },
-        "MajinBu": {
-          "link": "https://www.youtube.com/",
-          "icon-color": ""
-        }
+    }
+  },
+  "Lol": {
+    "links": {
+      "Goku": {
+        "link": "https://www.google.com",
+        "icon-color": ""
+      },
+      "MajinBu": {
+        "link": "https://www.youtube.com/",
+        "icon-color": ""
       }
     }
   }

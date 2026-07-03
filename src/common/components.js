@@ -1,7 +1,7 @@
 import { GroupButton, LinkButton, Tab } from "../components/buttons.js";
 import config from '../../config.json' assert { type: 'json' };
 import { ImagePicker, SettingsModal } from "../components/modal.js";
-import { saveSettings } from "./settings.js";
+import { readConfig, saveSettings } from "./settings.js";
 import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
 import { Poetry } from "../components/poetry.js";
@@ -42,6 +42,7 @@ export function addTab() {
   // Add tabs.
   // This is the entry point for the rest of the elements, each tab adds the
   // group buttons, each group adds the link buttons.
+  const config = readConfig()
   for (const [key, value] of Object.entries(config)) {
     // Create new tab first
     const tab = new Tab({
@@ -56,6 +57,7 @@ export function addTab() {
 
 function addGroupButtons(tab) {
   // Takes a tab.config object and add a the button groups to it
+  debugger;
   for (const [key, value] of Object.entries(tab.content)) {
     const group = new GroupButton({
       name: key,
@@ -84,6 +86,7 @@ function addLinkButtons(group) {
 export function addModal() {
   // Read settings from config and create modal
   // const settings = Object.fromEntries(Object.entries(config.settings))
+  const config = readConfig()
   new SettingsModal()
   // Add image picker
   const bannerPicker = new ImagePicker({ images: config.banners });
