@@ -57,7 +57,6 @@ export function addTab() {
 
 function addGroupButtons(tab) {
   // Takes a tab.config object and add a the button groups to it
-  debugger;
   for (const [key, value] of Object.entries(tab.content)) {
     const group = new GroupButton({
       name: key,
@@ -69,12 +68,13 @@ function addGroupButtons(tab) {
 }
 
 function addLinkButtons(group) {
+  const containerId = `${group.tab.name}-${group.name}`;
   for (const [key, value] of Object.entries(group.content)) {
     new LinkButton({
       text: key,
       iconColor: value["icon-color"],
       icon: value.icon,
-      container: document.getElementById(group.name), // Create inside group
+      container: document.getElementById(containerId), // Create inside group
       href: value.link
       // onClick: () => {
       //   window.open(value.link);
