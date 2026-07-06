@@ -20,8 +20,8 @@ export class JsonEditor {
           content,
           onChange: (updatedContent, previousContent, { contentErrors, patchResult }) => {
             // content is an object { json: unknown } | { text: string }
-            console.log('onChange', { updatedContent, previousContent, contentErrors, patchResult })
-            this.config = updatedContent
+            if (contentErrors) return; // don't update on invalid JSON
+            this.config = updatedContent.json ?? JSON.parse(updatedContent.text);
           }
         }
       }
@@ -30,6 +30,7 @@ export class JsonEditor {
 
   saveConfig() {
     writeConfig(this.config);
+    addTab();
   }
 
 }
