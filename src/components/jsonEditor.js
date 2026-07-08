@@ -1,5 +1,6 @@
 import { createJSONEditor } from "vanilla-jsoneditor";
 import { readConfig, readSettings, writeConfig } from "../common/settings";
+import { addTab } from "../common/components";
 
 export class JsonEditor {
   constructor(options) {

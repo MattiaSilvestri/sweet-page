@@ -6,6 +6,7 @@ import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
 import { Poetry } from "../components/poetry.js";
 import { Banner } from "../components/banner.js";
+import { loadTab } from "./utils.js";
 
 export function addClock() {
   const clock = new Clock();
@@ -42,6 +43,11 @@ export function addTab() {
   // Add tabs.
   // This is the entry point for the rest of the elements, each tab adds the
   // group buttons, each group adds the link buttons.
+  // Clear existing tabs/panels first so this can be called reactively
+  // (e.g. after saving edits in the json editor) without duplicating DOM.
+  document.querySelector(".tabbed-container").innerHTML = "";
+  document.querySelector(".tab-board").innerHTML = "";
+
   const config = readConfig()
   for (const [key, value] of Object.entries(config)) {
     // Create new tab first
@@ -53,6 +59,10 @@ export function addTab() {
     // Add buttons for this tab
     addGroupButtons(tab.config);
   }
+
+  // Re-open the previously active tab (or first tab) since the rebuild
+  // above wipes any inline transform / active state set by openTab().
+  loadTab();
 }
 
 function addGroupButtons(tab) {

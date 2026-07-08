@@ -22,12 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
   addSearchBar();
   addModal();
   addTab();
-  const buttons = document.querySelectorAll(".tablinks");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", evt => {
-      const name = btn.dataset.name;
-      openTab(name, { evt: evt });
-    });
+  // Event delegation: survives tab buttons being rebuilt (e.g. after saving
+  // the json editor), unlike attaching listeners to each button directly.
+  document.querySelector(".tabbed-container").addEventListener("click", evt => {
+    const btn = evt.target.closest(".tablinks");
+    if (!btn) return;
+    openTab(btn.dataset.name, { btn, evt });
   });
 
   // Add Json editor
