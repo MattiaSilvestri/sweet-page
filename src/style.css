@@ -384,6 +384,7 @@ main>div {
 }
 
 #poetry {
-  max-width: 384px; /* Match banner width (w-96) */
+  max-width: 384px;
+  /* Match banner width (w-96) */
   text-align: left;
 }
