@@ -1,4 +1,4 @@
-# a-startpage
+# sweet-page
 Simple static startpage made with HTML + SCSS.
 
 # Roadmap 
