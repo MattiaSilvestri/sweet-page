@@ -1,4 +1,4 @@
-# sweet-page
+# Sweet-page
 Simple browser startpage made with HTML, TailwindCSS and plain JS.  
 
 I wanted to learn JS with a first simple project and this is the result. It is not vibe coded, I
@@ -6,9 +6,11 @@ used Claude mostly to improve the look of the UI and to get some assistance with
 things, but I'm responsible for all the JS logic and project structure, proof: the bad logic and
 project structure (don't judge me too harshly).  
 
-**Why the poetries?** Because I like poetry, obviously.  
-**Why many banners have dolomites in them?** Because I live nearby the dolomites, I find them to be heaven on
-earth. Everything associated with them is beautiful so this startpage is beautiful by osmosis.
+- **Why the poetries?** Because I like poetry, obviously.  
+- **Why many banners have dolomites in them?** Because I live nearby the dolomites, I find them to be heaven on
+earth. Everything associated with them is beautiful so this startpage is beautiful by osmosis.  
+- **Why "Sweet-page" instead of a name more to the point like "Poet-page" or "Literature-page" or
+  something?** I don't know, it sounded good, and poetries are sweet I guess(?).
 
 ## Featuers
 - Search bar.
