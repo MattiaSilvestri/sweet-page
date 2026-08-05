@@ -4,7 +4,7 @@ Simple browser startpage made with HTML, TailwindCSS and plain JS.
 I wanted to learn JS with a first simple project and this is the result. It is not vibe coded, I
 used Claude mostly to improve the look of the UI and to get some assistance with JS for some minor
 things, but I'm responsible for all the JS logic and project structure, proof: the bad logic and
-project structure (don't judge me too harshly).  
+project structure.  
 
 - **Why the poetries?** Because I like poetry, obviously.  
 - **Why many banners have dolomites in them?** Because I live nearby the dolomites, I find them to be heaven on
