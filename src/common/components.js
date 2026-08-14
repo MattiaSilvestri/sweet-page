@@ -22,9 +22,7 @@ export async function addPoetry(linecount) {
   }
 
   const dailyPoetry = JSON.parse(localStorage.getItem("poetry"));
-  const [datePart, timePart] = dailyPoetry.timestamp.split(', ');
-  const [month, day, year] = datePart.split('/');
-  const poetryDate = new Date(`${year}-${month}-${day}T${timePart}`);
+  const poetryDate = new Date(dailyPoetry.timestamp);
   const isAnotherDay = new Date().toDateString() !== poetryDate.toDateString();
   if (isAnotherDay) {
     const dailyPoetry = await Poetry.create({ linecount });

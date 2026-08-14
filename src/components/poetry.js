@@ -24,7 +24,7 @@ export class Poetry {
 
   async fetchPoetry() {
     const poetry = await getPoetry(this.linecount);
-    poetry.timestamp = new Date().toLocaleString(undefined, { hour12: false, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    poetry.timestamp = new Date().toISOString();
     this.poetry = poetry;
     return poetry;
   }
