@@ -26,8 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // the json editor), unlike attaching listeners to each button directly.
   document.querySelector(".tabbed-container").addEventListener("click", evt => {
     const btn = evt.target.closest(".tablinks");
+    const tabs = Array.from(document.getElementsByClassName('tablinks'));
+    const index = tabs.indexOf(btn);
     if (!btn) return;
-    openTab(btn.dataset.name, { btn, evt });
+    openTab(btn.dataset.name, index, { btn, evt });
   });
 
   // Add Json editor

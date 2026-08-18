@@ -13,11 +13,11 @@ export const DEFAULT_BANNERS = [
 ]
 
 export const DEFAULT_CONFIG = {
-  "Bookmarks": {
+  "Favourites": {
     "links": {
       "Google": {
-        "link": "https://www.google.com",
-        "icon": "streamline-ultimate-color:google-logo",
+        "link": "https://mail.google.com/",
+        "icon": "thesvg-color:gmail-2026",
         "icon-color": ""
       },
       "YouTube": {

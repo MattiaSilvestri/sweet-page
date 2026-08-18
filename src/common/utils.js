@@ -1,6 +1,6 @@
 import { animate } from "motion";
 
-export function openTab(tabName, { evt = null, btn = null, skipAnimation = false } = {}) {
+export function openTab(tabName, tabIndex, { evt = null, btn = null, skipAnimation = false } = {}) {
   // Find currently visible tab before changing anything
   const activeLink = document.querySelector(".tablinks.active");
   const prevContent = activeLink ? document.getElementById(activeLink.dataset.name) : null;
@@ -37,12 +37,14 @@ export function openTab(tabName, { evt = null, btn = null, skipAnimation = false
   const target = btn || (evt && evt.currentTarget);
   if (target) target.classList.add("active");
 
-  localStorage.setItem("tab", tabName);
+  localStorage.setItem("tab", tabIndex);
 }
 
 export function loadTab() {
   const firstBtn = document.querySelector("button.tablinks");
-  const tabName = localStorage.getItem("tab") || (firstBtn ? firstBtn.dataset.name : null);
+  const tabIndex = localStorage.getItem("tab")
+  const tablinks = document.getElementsByClassName("tablinks");
+  const tabName = tabIndex ? tablinks[tabIndex].dataset.name : (firstBtn ? firstBtn.dataset.name : null);
   if (tabName) {
     const btn = document.querySelector(`button[data-name='${tabName}']`);
     openTab(tabName, { btn, skipAnimation: true });
