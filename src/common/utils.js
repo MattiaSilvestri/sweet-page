@@ -41,12 +41,12 @@ export function openTab(tabName, tabIndex, { evt = null, btn = null, skipAnimati
 }
 
 export function loadTab() {
-  const firstBtn = document.querySelector("button.tablinks");
-  const tabIndex = localStorage.getItem("tab")
-  const tablinks = document.getElementsByClassName("tablinks");
-  const tabName = tabIndex ? tablinks[tabIndex].dataset.name : (firstBtn ? firstBtn.dataset.name : null);
+  // const firstBtn = document.querySelector("button.tablinks");
+  const tabIndex = localStorage.getItem("tab") || 0
+  const allTabs = document.getElementsByClassName("tablinks");
+  const tabName = allTabs[tabIndex].dataset.name;
   if (tabName) {
     const btn = document.querySelector(`button[data-name='${tabName}']`);
-    openTab(tabName, { btn, skipAnimation: true });
+    openTab(tabName, tabIndex, { btn, skipAnimation: true });
   }
 }
