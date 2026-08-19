@@ -28,6 +28,10 @@ After this command you can access the page at http://localhost:8080. It will be 
 reboot (if your docker daemon is enabled) so that's all you need to run it locally. You can
 customize the local port by changing `8080` in the command above with another value.
 
+### Getting the icons
+Icons can be added from [iconify](https://iconify.design), just search the icon you want from
+[here](https://icon-sets.iconify.design/) and copy its name into the `incon` key of the JSON editor.
+
 # In case you wonder
 - **Why the poetries?** Because I like poetry, obviously.  
 - **Why many banners have dolomites in them?** Because I live nearby the dolomites, I find them to be heaven on
