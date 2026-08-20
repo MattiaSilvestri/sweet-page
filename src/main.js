@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   banner.render();
 
   addClock();
-  addPoetry(7);
+  addPoetry(10);
 
   addSearchBar();
   addModal();
