@@ -21,6 +21,7 @@ I'm planning to make it easier in the future (and maybe to substitute that JSON 
 something better).
 
 ## How to use
+### Installation
 The app comes with a docker container:
 ```sh
 docker run -d -p 8080:80 --restart unless-stopped dreadcrumbs/sweet-page:latest
