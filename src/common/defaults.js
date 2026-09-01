@@ -78,14 +78,43 @@ export const DEFAULT_CONFIG = {
       }
     }
   },
-  "WOOO": {
-    "links": {
-      "Goku": {
-        "link": "https://www.google.com",
+  "Social": {
+    "Forums": {
+      "Lemmy": {
+        "link": "https://lemmy.world/",
+        "icon": "selfhst:lemmy",
         "icon-color": ""
       },
-      "MajinBu": {
-        "link": "https://www.youtube.com/",
+      "Reddit": {
+        "link": "https://www.reddit.com/",
+        "icon": "thesvg-color:reddit",
+        "icon-color": ""
+      },
+      "Lesswrong": {
+        "link": "https://www.lesswrong.com/",
+        "icon": "gis:compass-rose",
+        "icon-color": ""
+      }
+    },
+    "Misc": {
+      "Mastodon": {
+        "link": "https://mastodon.social/home",
+        "icon": "selfhst:mastodon",
+        "icon-color": ""
+      },
+      "X": {
+        "link": "https://x.com/",
+        "icon": "devicon:twitter",
+        "icon-color": ""
+      },
+      "Telegram": {
+        "link": "https://web.telegram.org/a/",
+        "icon": "thesvg-color:telegram",
+        "icon-color": ""
+      },
+      "Whatsapp": {
+        "link": "https://web.whatsapp.com/",
+        "icon": "thesvg-color:whatsapp",
         "icon-color": ""
       }
     }
