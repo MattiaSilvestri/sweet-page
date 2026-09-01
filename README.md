@@ -36,14 +36,14 @@ reboot (if your docker daemon is enabled) so that's all you need to run it local
 Icons can be added from [iconify](https://iconify.design), just search the icon you want from
 [here](https://icon-sets.iconify.design/) and copy its name into the `incon` key of the JSON editor.
 
-# In case you wonder
+## In case you wonder
 - **Why the poetries?** Because I like poetry, obviously.  
 - **Why many banners have dolomites in them?** Because I live nearby the dolomites, I find them to be heaven on
 earth. Everything associated with them is beautiful so this startpage is beautiful by osmosis.  
 - **Why "Sweet-page" instead of a name more to the point like "Poet-page" or "Literature-page" or
   something?** I don't know, it sounded good, and poetries are sweet I guess(?).
 
-# Roadmap 
+## Roadmap 
 - [x] Add icon support for bookmark links
 - [x] Add settings support
 - [x] Add cover image and poetry
