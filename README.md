@@ -8,6 +8,8 @@ used Claude mostly to improve the look of the UI and to get some assistance with
 things, but I'm responsible for all the JS logic and project structure, proof: the bad logic and
 project structure.  
 
+Bugs are to be expected and might be fixed when I have time, use at your own risk.
+
 ## Featuers
 - Search bar.
 - Store and group bookmarks in tabs and subcategories.
@@ -28,8 +30,7 @@ docker run -d -p 8080:80 --restart unless-stopped dreadcrumbs/sweet-page:latest
 ```
 
 After this command you can access the page at http://localhost:8080. It will be restarted on every
-reboot (if your docker daemon is enabled) so that's all you need to run it locally. You can
-customize the local port by changing `8080` in the command above with another value.
+reboot (if your docker daemon is enabled) so that's all you need to run it locally. 
 
 ### Getting the icons
 Icons can be added from [iconify](https://iconify.design), just search the icon you want from
