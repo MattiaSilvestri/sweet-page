@@ -1,0 +1,20 @@
+node_modules/.vite/deps/_metadata.json
+  h_1ed41898eab8ea 2-3,5,10,16,22,28,34
+src/common/defaults.js
+  h_1ed41898eab8ea 16,19-20
+src/common/utils.js
+  h_1ed41898eab8ea 3,40,45-47
+src/main.js
+  h_1ed41898eab8ea 29-30,32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "36738243f20e7f543d4cbf9e2ba249ce1a7a6f91",
+  "prompts": {},
+  "humans": {
+    "h_1ed41898eab8ea": {
+      "author": "MattiaSilvestri <mattiasilvestri27@gmail.com>"
+    }
+  }
+}
