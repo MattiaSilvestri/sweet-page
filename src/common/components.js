@@ -1,11 +1,9 @@
 import { GroupButton, LinkButton, Tab } from "../components/buttons.js";
-import config from '../../config.json' assert { type: 'json' };
 import { ImagePicker, SettingsModal } from "../components/modal.js";
 import { readConfig, saveSettings } from "./settings.js";
 import { SearchBar } from "../components/searcBar.js";
 import { Clock } from "../components/clock.js";
 import { Poetry } from "../components/poetry.js";
-import { Banner } from "../components/banner.js";
 import { loadTab } from "./utils.js";
 
 export function addClock() {
