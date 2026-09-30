@@ -1,0 +1,14 @@
+README.md
+  h_1ed41898eab8ea 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "468415a0b2c9fe807fcacb693a10dbc73a1aab53",
+  "prompts": {},
+  "humans": {
+    "h_1ed41898eab8ea": {
+      "author": "MattiaSilvestri <mattiasilvestri27@gmail.com>"
+    }
+  }
+}
