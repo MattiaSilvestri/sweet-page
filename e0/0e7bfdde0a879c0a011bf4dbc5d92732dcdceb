@@ -1,0 +1,14 @@
+src/common/defaults.js
+  h_1ed41898eab8ea 17-30,35-77,81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e00e7bfdde0a879c0a011bf4dbc5d92732dcdceb",
+  "prompts": {},
+  "humans": {
+    "h_1ed41898eab8ea": {
+      "author": "MattiaSilvestri <mattiasilvestri27@gmail.com>"
+    }
+  }
+}
